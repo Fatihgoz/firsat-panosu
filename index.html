@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fırsat Panosu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0B1220;
+    --panel:#101A2E;
+    --panel-raised:#16223A;
+    --flap-amber:#FFB000;
+    --flap-white:#EDEAE2;
+    --muted:#6C7A93;
+    --line:#243252;
+    --burs:#7CD9A5;
+    --staj:#5EA8FF;
+    --yarisma:#FF6B6B;
+    --program:#B794F4;
+    --font-display:'Space Mono', monospace;
+    --font-body:'IBM Plex Sans', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg-deep);
+    color:var(--flap-white);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    padding-bottom:80px;
+  }
+  a{color:inherit;}
+
+  /* ---- Header ---- */
+  header{
+    padding:48px 24px 32px;
+    max-width:960px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .eyebrow{
+    font-family:var(--font-display);
+    font-size:12px;
+    letter-spacing:0.25em;
+    color:var(--flap-amber);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(32px, 7vw, 56px);
+    letter-spacing:0.02em;
+    color:var(--flap-white);
+    line-height:1.1;
+  }
+  header p{
+    margin-top:14px;
+    color:var(--muted);
+    font-size:15px;
+    max-width:440px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* ---- Next deadline strip ---- */
+  .next-strip{
+    max-width:960px;
+    margin:0 auto 36px;
+    padding:0 24px;
+  }
+  .next-card{
+    background:var(--panel-raised);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .next-label{
+    font-family:var(--font-display);
+    font-size:11px;
+    letter-spacing:0.2em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .next-title{
+    font-size:17px;
+    font-weight:600;
+    color:var(--flap-white);
+  }
+  .countdown{
+    display:flex;
+    gap:8px;
+  }
+  .flap{
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:8px 12px;
+    text-align:center;
+    min-width:56px;
+    animation:flapIn 0.6s ease both;
+  }
+  .flap .num{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:24px;
+    color:var(--flap-amber);
+    display:block;
+    line-height:1;
+  }
+  .flap .unit{
+    font-size:9px;
+    letter-spacing:0.1em;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+  @keyframes flapIn{
+    from{opacity:0; transform:translateY(-6px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* ---- Filters ---- */
+  .filters{
+    max-width:960px;
+    margin:0 auto 20px;
+    padding:0 24px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .filter-btn{
+    font-family:var(--font-display);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:transparent;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:9px 16px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .filter-btn:hover{ color:var(--flap-white); border-color:var(--muted); }
+  .filter-btn.active{
+    background:var(--flap-amber);
+    color:var(--bg-deep);
+    border-color:var(--flap-amber);
+  }
+
+  /* ---- Board ---- */
+  .board{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .board-header{
+    display:grid;
+    grid-template-columns:100px 1fr 130px 90px;
+    gap:12px;
+    font-family:var(--font-display);
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding:10px 16px;
+    border-bottom:1px solid var(--line);
+  }
+  .row{
+    display:grid;
+    grid-template-columns:100px 1fr 130px 90px;
+    gap:12px;
+    align-items:center;
+    padding:16px;
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+    animation:rowIn 0.5s ease both;
+    transition:background 0.15s ease;
+  }
+  .row:hover{ background:var(--panel-raised); }
+  @keyframes rowIn{
+    from{opacity:0; transform:translateY(-4px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .tag{
+    font-family:var(--font-display);
+    font-size:10px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:4px 8px;
+    border-radius:3px;
+    display:inline-block;
+    width:fit-content;
+  }
+  .tag.burs{ background:rgba(124,217,165,0.15); color:var(--burs); }
+  .tag.staj{ background:rgba(94,168,255,0.15); color:var(--staj); }
+  .tag.yarisma{ background:rgba(255,107,107,0.15); color:var(--yarisma); }
+  .tag.program{ background:rgba(183,148,244,0.15); color:var(--program); }
+
+  .row-title{ font-size:14px; font-weight:600; color:var(--flap-white); }
+  .row-desc{ font-size:12px; color:var(--muted); margin-top:2px; }
+  .row-date{ font-family:var(--font-display); font-size:13px; color:var(--flap-white); }
+  .row-remain{ font-family:var(--font-display); font-size:12px; color:var(--flap-amber); text-align:right; }
+
+  .row-link{
+    font-family:var(--font-display);
+    font-size:11px;
+    letter-spacing:0.05em;
+    color:var(--flap-amber);
+    text-decoration:none;
+    border:1px solid var(--flap-amber);
+    border-radius:3px;
+    padding:5px 10px;
+    display:inline-block;
+    text-align:center;
+    transition:all 0.15s ease;
+  }
+  .row-link:hover{ background:var(--flap-amber); color:var(--bg-deep); }
+
+  /* ---- Mobile ---- */
+  @media (max-width:640px){
+    .board-header{ display:none; }
+    .row{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+    .row-remain{ text-align:left; }
+    .next-card{ flex-direction:column; align-items:flex-start; }
+  }
+
+  /* ---- Detail modal ---- */
+  .modal-backdrop{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(5,8,16,0.75);
+    z-index:50;
+    padding:24px;
+    overflow-y:auto;
+  }
+  .modal-backdrop.open{ display:block; }
+  .modal{
+    max-width:720px;
+    margin:24px auto 60px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:32px;
+    animation:rowIn 0.25s ease both;
+  }
+  .modal-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:8px;
+  }
+  .modal-close{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--muted);
+    border-radius:4px;
+    width:32px; height:32px;
+    cursor:pointer;
+    font-family:var(--font-display);
+    flex-shrink:0;
+  }
+  .modal-close:hover{ color:var(--flap-white); border-color:var(--muted); }
+  .modal h2{
+    font-family:var(--font-display);
+    font-size:22px;
+    color:var(--flap-white);
+    line-height:1.3;
+  }
+  .modal-meta{
+    font-family:var(--font-display);
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin:6px 0 20px;
+  }
+  .modal-section{ margin-bottom:24px; }
+  .modal-section h3{
+    font-family:var(--font-display);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--flap-amber);
+    margin-bottom:10px;
+  }
+  .modal-section p{ font-size:14px; color:var(--flap-white); line-height:1.6; }
+  .modal-list{ list-style:none; }
+  .modal-list li{
+    font-size:13px;
+    color:var(--flap-white);
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+    line-height:1.5;
+  }
+  .modal-list li:last-child{ border-bottom:none; }
+  .modal-list .li-title{ font-weight:600; margin-bottom:2px; }
+  .timeline-item{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:12px;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .timeline-item:last-child{ border-bottom:none; }
+  .timeline-date{
+    font-family:var(--font-display);
+    font-size:11px;
+    color:var(--flap-amber);
+  }
+  .timeline-label{ font-size:13px; color:var(--flap-white); font-weight:600; }
+  .timeline-desc{ font-size:12px; color:var(--muted); margin-top:2px; }
+  .modal-cta{
+    display:inline-block;
+    margin-top:8px;
+    font-family:var(--font-display);
+    font-size:13px;
+    letter-spacing:0.05em;
+    background:var(--flap-amber);
+    color:var(--bg-deep);
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:4px;
+    font-weight:700;
+  }
+
+  footer{
+    max-width:960px;
+    margin:56px auto 0;
+    padding:24px;
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    font-family:var(--font-display);
+    letter-spacing:0.05em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Ahmet Fatih Göz sunar</div>
+  <h1>FIRSAT PANOSU</h1>
+  <p>Burs, staj ve yarışma başvurularını tek panoda topladım. Kaçırma.</p>
+</header>
+
+<div class="next-strip">
+  <div class="next-card">
+    <div>
+      <div class="next-label">En Yakın Son Tarih</div>
+      <div class="next-title" id="next-title">—</div>
+    </div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+</div>
+
+<div class="filters" id="filters"></div>
+
+<div class="board">
+  <div class="board-header">
+    <div>Kategori</div>
+    <div>Fırsat</div>
+    <div>Son Tarih</div>
+    <div style="text-align:right">Kalan</div>
+  </div>
+  <div id="rows"></div>
+</div>
+
+<footer>PANO SON GÜNCELLEME: <span id="updated"></span></footer>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script>
+  const DATA = [
+    {
+      cat:"yarisma",
+      title:"Zemin360 Hackathon",
+      desc:"GİRVAK tarafından düzenlenen, kurum–girişim ekosistemine yönelik açık kaynak platform geliştirme maratonu · 9-11 Ekim, İstanbul · 200.000 TL platform geliştirme bütçesi",
+      date:"2026-09-07",
+      link:"https://airtable.com/appwOYmzlsgb0Kh5k/pagLdSaJjKrcEvozp/form",
+      meta:"9–11 Ekim 2026 · İstanbul · Yüz yüze",
+      summary:"Türkiye Girişimcilik Vakfı (GİRVAK) ve program paydaşlarının iş birliğiyle düzenlenen; genç yeteneklerle kurumları ortak bir zeminde buluşturan bir geliştirme maratonu. Katılımcılar üç gün boyunca, sektörün gerçek problemlerine çözüm üreten ve kurumların iş birliğiyle hayata geçecek açık kaynak bir platformu birlikte inşa eder.",
+      tasks:[
+        { title:"Genç Yeteneklerin Keşfi", desc:"Sektördeki genç yeteneklerin doğru kanallarla görünür olamaması ve fırsatlara erişememesi." },
+        { title:"Profil & Portfolyo Doğruluğu", desc:"Kişilerin beyan ettiği deneyim, beceri ve portfolyonun güvenilir biçimde doğrulanamaması." },
+        { title:"Kurum–Kişi Eşleşmesi", desc:"Kurumların ihtiyaçları ile bireylerin ve girişimlerin yetkinliklerinin sağlıklı biçimde eşleştirilememesi." },
+        { title:"Yaşayan Bir Ağ", desc:"Bir kez kurulan bağlantıların sürdürülememesi; etkileşimin canlı kalmadığı statik ağlar." },
+        { title:"İhtiyaçların Net Tanımı", desc:"Kurumların gerçek problemlerini yapılandırılmış ve çözülebilir biçimde ifade edememesi." },
+        { title:"Şeffaf İş Birliği Takibi", desc:"İş birliği ve pilot süreçlerinin ilerleyişinin şeffaf ve ölçülebilir biçimde izlenememesi." }
+      ],
+      criteria:[
+        "Ekipler minimum 1, maksimum 3 kişiden oluşmalıdır.",
+        "18–30 yaş aralığında olmak gerekir.",
+        "Yazılım geliştirme, UI/UX veya ürün geliştirme deneyimi aranır.",
+        "9–11 Ekim'deki yüz yüze hackathona İstanbul'da fiziksel katılım zorunludur."
+      ],
+      timeline:[
+        { date:"3 Ağu – 7 Eyl", label:"Başvuru formu", desc:"zemin360.com üzerindeki formu eksiksiz doldurun." },
+        { date:"7 – 14 Eyl", label:"Ön değerlendirme", desc:"Yapılan başvurular değerlendirilir ve etkinliğe katılacak ekipler seçilir." },
+        { date:"15 Eyl", label:"Sonuç bildirimi", desc:"Seçilen ekiplere kabul bildirimi gönderilir." },
+        { date:"15 – 18 Eyl", label:"Online ön hazırlık", desc:"İletişim kanalı açılır; teknik mentörlük ve duyurular paylaşılır." },
+        { date:"18 Eyl – 9 Eki", label:"Online geliştirme", desc:"Katılımcılar yüz yüze hackathon öncesinde uzaktan geliştirme sürecine başlar." },
+        { date:"9 – 11 Eki", label:"Yüz yüze hackathon", desc:"İstanbul'da üç gün süren fiziksel geliştirme ve sunum süreci." }
+      ],
+      odul:"200.000 TL Platform Geliştirme Bütçesi — bir hibe değil, fikri gerçek bir ürüne dönüştürmek için ayrılan bütçe. Birinci ekip, GİRVAK ile hizmet sözleşmesi imzalayarak platformu 4 aylık süreçte nihai ürüne taşır."
+    },
+    {
+      cat:"program",
+      title:"OpenAI Öğrenci Kolektifi – Kampüs Lideri",
+      desc:"Öğrencilerin kampüste ChatGPT ve Codex ile proje geliştirmesine öncülük eden, OpenAI'nin desteklediği bir kampüs liderliği programı.",
+      date:"2026-08-31",
+      link:"https://openai.com/tr-TR/student-collective/",
+      meta:"Uzaktan / Kampüs bazlı · 2026 Güz – 2027 Yaz dönemi",
+      summary:"OpenAI Öğrenci Kolektifi, lisans öğrencilerine ChatGPT ve Codex'e erişim, eğitim, finansman ve destek sağlayarak kampüste yapay zeka ile proje geliştirme kültürünü büyütmeyi hedefliyor. Kampüs Liderleri ikili ekipler halinde atölyeler, haftalık çalışma oturumları ve sergileme etkinlikleri düzenliyor.",
+      tasksLabel:"Program Nasıl İşliyor",
+      tasks:[
+        { title:"Atölye Çalışmaları", desc:"Öğrencilerin yeni yapay zeka becerileri öğrendiği, proje seçtiği etkinlikler · Dönem başına dört." },
+        { title:"Stüdyo Saatleri", desc:"Projelere odaklanılan haftalık birlikte çalışma oturumları." },
+        { title:"Sergileme Etkinlikleri", desc:"Öğrencilerin yapay zeka ile ortaya koyduğu çalışmaların kutlandığı etkinlikler · Her dönem bir kez." },
+        { title:"Topluluk", desc:"Bağlantıda kalınan, yaklaşan fırsatların keşfedildiği ortak alan · Sürekli." }
+      ],
+      criteriaLabel:"Uygunluk Koşulları",
+      criteria:[
+        "18 yaşında veya daha büyük olmak.",
+        "Ağustos 2026 itibarıyla bir lisans programına kayıtlı olmak ve Aralık 2027'den sonra mezun olmayı beklemek.",
+        "Ağustos 2026 – Haziran 2027 arasında haftada 4-6 saat ayırabilmek.",
+        "Eğitim görülen ülke şu an ABD, Kanada, İngiltere, Fransa, Almanya, Hindistan, Japonya veya G. Kore olmalı.",
+        "Başka bir yapay zeka programında/şirketinde elçi veya stajyer olmamak."
+      ],
+      rewardLabel:"Size Sağlanacaklar",
+      odul:"Program süresince ChatGPT aboneliği ve Codex kredileri, kampüs etkinlikleri için finansman, OpenAI ekibi ve küresel Kampüs Liderleri ağına erişim, her dönem nakdi destek, Haziran 2027'de genel merkez ziyareti fırsatı.",
+      note:"Not: Program şu an Türkiye'de resmi olarak sunulmuyor. Ancak başvuru formu üzerinden ilgini belirtebilirsin — program genişledikçe Türkiye'deki başvurular değerlendirmeye alınacak deniyor. Başvuru linkini bulunca ekleyebilirim."
+    },
+  ];
+
+  const CAT_LABEL = { burs:"Burs", staj:"Staj", yarisma:"Yarışma", program:"Program" };
+  const FILTERS = [ {key:"all", label:"Tümü"}, {key:"burs", label:"Burslar"}, {key:"staj", label:"Stajlar"}, {key:"yarisma", label:"Yarışmalar"}, {key:"program", label:"Programlar"} ];
+
+  let activeFilter = "all";
+
+  function daysRemaining(dateStr){
+    const target = new Date(dateStr + "T00:00:00");
+    const now = new Date();
+    const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diff = Math.round((target - nowMidnight) / (1000*60*60*24));
+    return diff;
+  }
+
+  function formatDate(dateStr){
+    const d = new Date(dateStr + "T00:00:00");
+    return d.toLocaleDateString('tr-TR', { day:'2-digit', month:'short', year:'numeric' });
+  }
+
+  function renderFilters(){
+    const el = document.getElementById('filters');
+    el.innerHTML = FILTERS.map(f =>
+      `<button class="filter-btn ${f.key===activeFilter?'active':''}" data-key="${f.key}">${f.label}</button>`
+    ).join('');
+    el.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        activeFilter = btn.dataset.key;
+        renderFilters();
+        renderRows();
+      });
+    });
+  }
+
+  function renderRows(){
+    const sorted = [...DATA].sort((a,b)=> new Date(a.date) - new Date(b.date));
+    const filtered = activeFilter === "all" ? sorted : sorted.filter(d=>d.cat===activeFilter);
+    const el = document.getElementById('rows');
+    el.innerHTML = filtered.map((d,i) => {
+      const remain = daysRemaining(d.date);
+      const remainText = remain < 0 ? "Süresi geçti" : remain === 0 ? "Bugün" : `${remain} gün`;
+      const realIndex = DATA.indexOf(d);
+      const hasDetail = !!d.summary;
+      return `
+        <div class="row" style="animation-delay:${i*0.04}s" ${hasDetail ? `data-idx="${realIndex}" role="button" tabindex="0"` : ''}>
+          <span class="tag ${d.cat}">${CAT_LABEL[d.cat]}</span>
+          <div>
+            <div class="row-title">${d.title}${hasDetail ? ' <span style="color:var(--flap-amber); font-size:11px;">→ Detaylar</span>' : ''}</div>
+            <div class="row-desc">${d.desc}</div>
+          </div>
+          <div class="row-date">${formatDate(d.date)}</div>
+          <div class="row-remain">${remainText}</div>
+        </div>`;
+    }).join('') + (filtered.length ? `` : `<div style="padding:32px; text-align:center; color:var(--muted); font-family:var(--font-display); font-size:13px;">BU KATEGORİDE ŞU AN KAYIT YOK</div>`);
+
+    el.querySelectorAll('.row[data-idx]').forEach(row=>{
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', ()=> openModal(parseInt(row.dataset.idx)));
+    });
+  }
+
+  function openModal(idx){
+    const d = DATA[idx];
+    const backdrop = document.getElementById('modal-backdrop');
+    const content = document.getElementById('modal-content');
+    let html = `
+      <div class="modal-top">
+        <div>
+          <h2>${d.title}</h2>
+          <div class="modal-meta">${d.meta || ''}</div>
+        </div>
+        <button class="modal-close" id="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-section"><p>${d.summary || d.desc}</p></div>
+    `;
+    if(d.tasks){
+      html += `<div class="modal-section"><h3>${d.tasksLabel || 'Üzerinde Çalışılacak Konular'}</h3><ul class="modal-list">`;
+      html += d.tasks.map(t => `<li><div class="li-title">${t.title}</div>${t.desc}</li>`).join('');
+      html += `</ul></div>`;
+    }
+    if(d.criteria){
+      html += `<div class="modal-section"><h3>${d.criteriaLabel || 'Başvuru Kriterleri'}</h3><ul class="modal-list">`;
+      html += d.criteria.map(c => `<li>${c}</li>`).join('');
+      html += `</ul></div>`;
+    }
+    if(d.timeline){
+      html += `<div class="modal-section"><h3>Takvim</h3>`;
+      html += d.timeline.map(t => `<div class="timeline-item"><div class="timeline-date">${t.date}</div><div><div class="timeline-label">${t.label}</div><div class="timeline-desc">${t.desc}</div></div></div>`).join('');
+      html += `</div>`;
+    }
+    if(d.odul){
+      html += `<div class="modal-section"><h3>${d.rewardLabel || 'Ödül'}</h3><p>${d.odul}</p></div>`;
+    }
+    if(d.note){
+      html += `<div class="modal-section" style="border-left:2px solid var(--program); padding-left:14px;"><p style="color:var(--muted); font-size:13px;">${d.note}</p></div>`;
+    }
+    if(d.link && d.link !== "#"){
+      html += `<a class="modal-cta" href="${d.link}" target="_blank" rel="noopener">Hemen Başvur →</a>`;
+    }
+    content.innerHTML = html;
+    backdrop.classList.add('open');
+    document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+  }
+
+  function closeModal(){
+    document.getElementById('modal-backdrop').classList.remove('open');
+  }
+
+  document.getElementById('modal-backdrop').addEventListener('click', (e)=>{
+    if(e.target.id === 'modal-backdrop') closeModal();
+  });
+
+  function renderNext(){
+    const sorted = [...DATA].sort((a,b)=> new Date(a.date) - new Date(b.date))
+      .filter(d => daysRemaining(d.date) >= 0);
+    const next = sorted[0];
+    if(!next){ document.getElementById('next-title').textContent = "Yaklaşan başvuru yok"; return; }
+    document.getElementById('next-title').textContent = next.title;
+    const remain = daysRemaining(next.date);
+    const days = Math.max(remain, 0);
+    const el = document.getElementById('countdown');
+    el.innerHTML = `
+      <div class="flap"><span class="num">${String(days).padStart(2,'0')}</span><span class="unit">Gün</span></div>
+    `;
+  }
+
+  renderFilters();
+  renderRows();
+  renderNext();
+  document.getElementById('updated').textContent = new Date().toLocaleDateString('tr-TR', { day:'2-digit', month:'long', year:'numeric' });
+</script>
+
+</body>
+</html>
