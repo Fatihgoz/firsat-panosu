@@ -7,345 +7,330 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg-deep:#0B1220;
-    --panel:#101A2E;
-    --panel-raised:#16223A;
-    --flap-amber:#FFB000;
-    --flap-white:#EDEAE2;
-    --muted:#6C7A93;
-    --line:#243252;
-    --burs:#7CD9A5;
-    --staj:#5EA8FF;
-    --yarisma:#FF6B6B;
-    --program:#B794F4;
-    --font-display:'Space Mono', monospace;
-    --font-body:'IBM Plex Sans', sans-serif;
+  :root {
+    --bg-deep: #0B1220;
+    --panel: #101A2E;
+    --panel-raised: #16223A;
+    --flap-amber: #FFB000;
+    --flap-white: #EDEAE2;
+    --muted: #6C7A93;
+    --line: #243252;
+    --burs: #7CD9A5;
+    --staj: #5EA8FF;
+    --yarisma: #FF6B6B;
+    --program: #B794F4;
+    --font-display: 'Space Mono', monospace;
+    --font-body: 'IBM Plex Sans', sans-serif;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{
-    background:var(--bg-deep);
-    color:var(--flap-white);
-    font-family:var(--font-body);
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;
-    padding-bottom:80px;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg-deep);
+    color: var(--flap-white);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding-bottom: 80px;
   }
-  a{color:inherit;}
+  a { color: inherit; }
 
   /* ---- Header ---- */
-  header{
-    padding:48px 24px 32px;
-    max-width:960px;
-    margin:0 auto;
-    text-align:center;
+  header {
+    padding: 48px 24px 32px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
   }
-  .eyebrow{
-    font-family:var(--font-display);
-    font-size:12px;
-    letter-spacing:0.25em;
-    color:var(--flap-amber);
-    text-transform:uppercase;
-    margin-bottom:18px;
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--flap-amber);
+    text-transform: uppercase;
+    margin-bottom: 18px;
   }
-  h1{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:clamp(32px, 7vw, 56px);
-    letter-spacing:0.02em;
-    color:var(--flap-white);
-    line-height:1.1;
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(32px, 7vw, 56px);
+    letter-spacing: 0.02em;
+    color: var(--flap-white);
+    line-height: 1.1;
   }
-  header p{
-    margin-top:14px;
-    color:var(--muted);
-    font-size:15px;
-    max-width:440px;
-    margin-left:auto;
-    margin-right:auto;
+  header p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* ---- Next deadline strip ---- */
-  .next-strip{
-    max-width:960px;
-    margin:0 auto 36px;
-    padding:0 24px;
+  .next-strip {
+    max-width: 960px;
+    margin: 0 auto 36px;
+    padding: 0 24px;
   }
-  .next-card{
-    background:var(--panel-raised);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:20px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    flex-wrap:wrap;
+  .next-card {
+    background: var(--panel-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
   }
-  .next-label{
-    font-family:var(--font-display);
-    font-size:11px;
-    letter-spacing:0.2em;
-    color:var(--muted);
-    text-transform:uppercase;
-    margin-bottom:6px;
+  .next-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
   }
-  .next-title{
-    font-size:17px;
-    font-weight:600;
-    color:var(--flap-white);
+  .next-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--flap-white);
   }
-  .countdown{
-    display:flex;
-    gap:8px;
+  .countdown {
+    display: flex;
+    gap: 8px;
   }
-  .flap{
-    background:var(--bg-deep);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:8px 12px;
-    text-align:center;
-    min-width:56px;
-    animation:flapIn 0.6s ease both;
+  .flap {
+    background: var(--bg-deep);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-align: center;
+    min-width: 56px;
+    animation: flapIn 0.6s ease both;
   }
-  .flap .num{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:24px;
-    color:var(--flap-amber);
-    display:block;
-    line-height:1;
+  .flap .num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--flap-amber);
+    display: block;
+    line-height: 1;
   }
-  .flap .unit{
-    font-size:9px;
-    letter-spacing:0.1em;
-    color:var(--muted);
-    text-transform:uppercase;
+  .flap .unit {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
   }
-  @keyframes flapIn{
-    from{opacity:0; transform:translateY(-6px);}
-    to{opacity:1; transform:translateY(0);}
+  @keyframes flapIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* ---- Filters ---- */
-  .filters{
-    max-width:960px;
-    margin:0 auto 20px;
-    padding:0 24px;
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
+  .filters {
+    max-width: 960px;
+    margin: 0 auto 20px;
+    padding: 0 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
   }
-  .filter-btn{
-    font-family:var(--font-display);
-    font-size:12px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    background:transparent;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:9px 16px;
-    cursor:pointer;
-    transition:all 0.15s ease;
+  .filter-btn {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 9px 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
   }
-  .filter-btn:hover{ color:var(--flap-white); border-color:var(--muted); }
-  .filter-btn.active{
-    background:var(--flap-amber);
-    color:var(--bg-deep);
-    border-color:var(--flap-amber);
+  .filter-btn:hover { color: var(--flap-white); border-color: var(--muted); }
+  .filter-btn.active {
+    background: var(--flap-amber);
+    color: var(--bg-deep);
+    border-color: var(--flap-amber);
   }
 
   /* ---- Board ---- */
-  .board{
-    max-width:960px;
-    margin:0 auto;
-    padding:0 24px;
+  .board {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
   }
-  .board-header{
-    display:grid;
-    grid-template-columns:100px 1fr 130px 90px;
-    gap:12px;
-    font-family:var(--font-display);
-    font-size:11px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--muted);
-    padding:10px 16px;
-    border-bottom:1px solid var(--line);
+  .board-header {
+    display: grid;
+    grid-template-columns: 100px 1fr 130px 90px;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--line);
   }
-  .row{
-    display:grid;
-    grid-template-columns:100px 1fr 130px 90px;
-    gap:12px;
-    align-items:center;
-    padding:16px;
-    border-bottom:1px solid var(--line);
-    background:var(--panel);
-    animation:rowIn 0.5s ease both;
-    transition:background 0.15s ease;
+  .row {
+    display: grid;
+    grid-template-columns: 100px 1fr 130px 90px;
+    gap: 12px;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel);
+    animation: rowIn 0.5s ease both;
+    transition: background 0.15s ease;
   }
-  .row:hover{ background:var(--panel-raised); }
-  @keyframes rowIn{
-    from{opacity:0; transform:translateY(-4px);}
-    to{opacity:1; transform:translateY(0);}
+  .row:hover { background: var(--panel-raised); }
+  @keyframes rowIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  .tag{
-    font-family:var(--font-display);
-    font-size:10px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    padding:4px 8px;
-    border-radius:3px;
-    display:inline-block;
-    width:fit-content;
+  .tag {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    width: fit-content;
   }
-  .tag.burs{ background:rgba(124,217,165,0.15); color:var(--burs); }
-  .tag.staj{ background:rgba(94,168,255,0.15); color:var(--staj); }
-  .tag.yarisma{ background:rgba(255,107,107,0.15); color:var(--yarisma); }
-  .tag.program{ background:rgba(183,148,244,0.15); color:var(--program); }
+  .tag.burs { background: rgba(124,217,165,0.15); color: var(--burs); }
+  .tag.staj { background: rgba(94,168,255,0.15); color: var(--staj); }
+  .tag.yarisma { background: rgba(255,107,107,0.15); color: var(--yarisma); }
+  .tag.program { background: rgba(183,148,244,0.15); color: var(--program); }
 
-  .row-title{ font-size:14px; font-weight:600; color:var(--flap-white); }
-  .row-desc{ font-size:12px; color:var(--muted); margin-top:2px; }
-  .row-date{ font-family:var(--font-display); font-size:13px; color:var(--flap-white); }
-  .row-remain{ font-family:var(--font-display); font-size:12px; color:var(--flap-amber); text-align:right; }
-
-  .row-link{
-    font-family:var(--font-display);
-    font-size:11px;
-    letter-spacing:0.05em;
-    color:var(--flap-amber);
-    text-decoration:none;
-    border:1px solid var(--flap-amber);
-    border-radius:3px;
-    padding:5px 10px;
-    display:inline-block;
-    text-align:center;
-    transition:all 0.15s ease;
-  }
-  .row-link:hover{ background:var(--flap-amber); color:var(--bg-deep); }
+  .row-title { font-size: 14px; font-weight: 600; color: var(--flap-white); }
+  .row-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .row-date { font-family: var(--font-display); font-size: 13px; color: var(--flap-white); }
+  .row-remain { font-family: var(--font-display); font-size: 12px; color: var(--flap-amber); text-align: right; }
 
   /* ---- Mobile ---- */
-  @media (max-width:640px){
-    .board-header{ display:none; }
-    .row{
-      grid-template-columns:1fr;
-      gap:8px;
+  @media (max-width: 640px) {
+    .board-header { display: none; }
+    .row {
+      grid-template-columns: 1fr;
+      gap: 8px;
     }
-    .row-remain{ text-align:left; }
-    .next-card{ flex-direction:column; align-items:flex-start; }
+    .row-remain { text-align: left; }
+    .next-card { flex-direction: column; align-items: flex-start; }
   }
 
   /* ---- Detail modal ---- */
-  .modal-backdrop{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(5,8,16,0.75);
-    z-index:50;
-    padding:24px;
-    overflow-y:auto;
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,8,16,0.75);
+    z-index: 50;
+    padding: 24px;
+    overflow-y: auto;
   }
-  .modal-backdrop.open{ display:block; }
-  .modal{
-    max-width:720px;
-    margin:24px auto 60px;
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:8px;
-    padding:32px;
-    animation:rowIn 0.25s ease both;
+  .modal-backdrop.open { display: block; }
+  .modal {
+    max-width: 720px;
+    margin: 24px auto 60px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 32px;
+    animation: rowIn 0.25s ease both;
   }
-  .modal-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:16px;
-    margin-bottom:8px;
+  .modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 8px;
   }
-  .modal-close{
-    background:transparent;
-    border:1px solid var(--line);
-    color:var(--muted);
-    border-radius:4px;
-    width:32px; height:32px;
-    cursor:pointer;
-    font-family:var(--font-display);
-    flex-shrink:0;
+  .modal-close {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    border-radius: 4px;
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-family: var(--font-display);
+    flex-shrink: 0;
   }
-  .modal-close:hover{ color:var(--flap-white); border-color:var(--muted); }
-  .modal h2{
-    font-family:var(--font-display);
-    font-size:22px;
-    color:var(--flap-white);
-    line-height:1.3;
+  .modal-close:hover { color: var(--flap-white); border-color: var(--muted); }
+  .modal h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--flap-white);
+    line-height: 1.3;
   }
-  .modal-meta{
-    font-family:var(--font-display);
-    font-size:11px;
-    letter-spacing:0.08em;
-    color:var(--muted);
-    text-transform:uppercase;
-    margin:6px 0 20px;
+  .modal-meta {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 6px 0 20px;
   }
-  .modal-section{ margin-bottom:24px; }
-  .modal-section h3{
-    font-family:var(--font-display);
-    font-size:12px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--flap-amber);
-    margin-bottom:10px;
+  .modal-section { margin-bottom: 24px; }
+  .modal-section h3 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--flap-amber);
+    margin-bottom: 10px;
   }
-  .modal-section p{ font-size:14px; color:var(--flap-white); line-height:1.6; }
-  .modal-list{ list-style:none; }
-  .modal-list li{
-    font-size:13px;
-    color:var(--flap-white);
-    padding:10px 0;
-    border-bottom:1px solid var(--line);
-    line-height:1.5;
+  .modal-section p { font-size: 14px; color: var(--flap-white); line-height: 1.6; }
+  .modal-list { list-style: none; }
+  .modal-list li {
+    font-size: 13px;
+    color: var(--flap-white);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    line-height: 1.5;
   }
-  .modal-list li:last-child{ border-bottom:none; }
-  .modal-list .li-title{ font-weight:600; margin-bottom:2px; }
-  .timeline-item{
-    display:grid;
-    grid-template-columns:110px 1fr;
-    gap:12px;
-    padding:10px 0;
-    border-bottom:1px solid var(--line);
+  .modal-list li:last-child { border-bottom: none; }
+  .modal-list .li-title { font-weight: 600; margin-bottom: 2px; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .timeline-item:last-child{ border-bottom:none; }
-  .timeline-date{
-    font-family:var(--font-display);
-    font-size:11px;
-    color:var(--flap-amber);
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-date {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--flap-amber);
   }
-  .timeline-label{ font-size:13px; color:var(--flap-white); font-weight:600; }
-  .timeline-desc{ font-size:12px; color:var(--muted); margin-top:2px; }
-  .modal-cta{
-    display:inline-block;
-    margin-top:8px;
-    font-family:var(--font-display);
-    font-size:13px;
-    letter-spacing:0.05em;
-    background:var(--flap-amber);
-    color:var(--bg-deep);
-    text-decoration:none;
-    padding:12px 20px;
-    border-radius:4px;
-    font-weight:700;
+  .timeline-label { font-size: 13px; color: var(--flap-white); font-weight: 600; }
+  .timeline-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .modal-cta {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    background: var(--flap-amber);
+    color: var(--bg-deep);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: 700;
   }
 
-  footer{
-    max-width:960px;
-    margin:56px auto 0;
-    padding:24px;
-    text-align:center;
-    font-size:12px;
-    color:var(--muted);
-    font-family:var(--font-display);
-    letter-spacing:0.05em;
+  footer {
+    max-width: 960px;
+    margin: 56px auto 0;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
   }
 </style>
 </head>
@@ -388,499 +373,424 @@
 <script>
   const DATA = [
     {
-      cat:"yarisma",
-      title:"Zemin360 Hackathon",
-      desc:"GİRVAK tarafından düzenlenen, kurum–girişim ekosistemine yönelik açık kaynak platform geliştirme maratonu · 9-11 Ekim, İstanbul · 200.000 TL platform geliştirme bütçesi",
-      date:"2026-09-07",
-      link:"https://airtable.com/appwOYmzlsgb0Kh5k/pagLdSaJjKrcEvozp/form",
-      meta:"9–11 Ekim 2026 · İstanbul · Yüz yüze",
-      summary:"Türkiye Girişimcilik Vakfı (GİRVAK) ve program paydaşlarının iş birliğiyle düzenlenen; genç yeteneklerle kurumları ortak bir zeminde buluşturan bir geliştirme maratonu. Katılımcılar üç gün boyunca, sektörün gerçek problemlerine çözüm üreten ve kurumların iş birliğiyle hayata geçecek açık kaynak bir platformu birlikte inşa eder.",
-      tasks:[
-        { title:"Genç Yeteneklerin Keşfi", desc:"Sektördeki genç yeteneklerin doğru kanallarla görünür olamaması ve fırsatlara erişememesi." },
-        { title:"Profil & Portfolyo Doğruluğu", desc:"Kişilerin beyan ettiği deneyim, beceri ve portfolyonun güvenilir biçimde doğrulanamaması." },
-        { title:"Kurum–Kişi Eşleşmesi", desc:"Kurumların ihtiyaçları ile bireylerin ve girişimlerin yetkinliklerinin sağlıklı biçimde eşleştirilememesi." },
-        { title:"Yaşayan Bir Ağ", desc:"Bir kez kurulan bağlantıların sürdürülememesi; etkileşimin canlı kalmadığı statik ağlar." },
-        { title:"İhtiyaçların Net Tanımı", desc:"Kurumların gerçek problemlerini yapılandırılmış ve çözülebilir biçimde ifade edememesi." },
-        { title:"Şeffaf İş Birliği Takibi", desc:"İş birliği ve pilot süreçlerinin ilerleyişinin şeffaf ve ölçülebilir biçimde izlenememesi." }
-      ],
-      criteria:[
+      cat: "yarisma",
+      title: "Zemin360 Hackathon",
+      desc: "GİRVAK tarafından düzenlenen, kurum–girişim ekosistemine yönelik açık kaynak platform geliştirme maratonu · 9-11 Ekim, İstanbul · 200.000 TL platform geliştirme bütçesi",
+      date: "2026-09-07",
+      link: "https://airtable.com/appwOYmzlsgb0Kh5k/pagLdSaJjKrcEvozp/form",
+      meta: "9–11 Ekim 2026 · İstanbul · Yüz yüze",
+      summary: "Türkiye Girişimcilik Vakfı (GİRVAK) ve program paydaşlarının iş birliğiyle düzenlenen; genç yeteneklerle kurumları ortak bir zeminde buluşturan bir geliştirme maratonu.",
+      criteria: [
         "Ekipler minimum 1, maksimum 3 kişiden oluşmalıdır.",
         "18–30 yaş aralığında olmak gerekir.",
-        "Yazılım geliştirme, UI/UX veya ürün geliştirme deneyimi aranır.",
-        "9–11 Ekim'deki yüz yüze hackathona İstanbul'da fiziksel katılım zorunludur."
+        "Yazılım geliştirme, UI/UX veya ürün geliştirme deneyimi aranır."
       ],
-      timeline:[
-        { date:"3 Ağu – 7 Eyl", label:"Başvuru formu", desc:"zemin360.com üzerindeki formu eksiksiz doldurun." },
-        { date:"7 – 14 Eyl", label:"Ön değerlendirme", desc:"Yapılan başvurular değerlendirilir ve etkinliğe katılacak ekipler seçilir." },
-        { date:"15 Eyl", label:"Sonuç bildirimi", desc:"Seçilen ekiplere kabul bildirimi gönderilir." },
-        { date:"15 – 18 Eyl", label:"Online ön hazırlık", desc:"İletişim kanalı açılır; teknik mentörlük ve duyurular paylaşılır." },
-        { date:"18 Eyl – 9 Eki", label:"Online geliştirme", desc:"Katılımcılar yüz yüze hackathon öncesinde uzaktan geliştirme sürecine başlar." },
-        { date:"9 – 11 Eki", label:"Yüz yüze hackathon", desc:"İstanbul'da üç gün süren fiziksel geliştirme ve sunum süreci." }
-      ],
-      odul:"200.000 TL Platform Geliştirme Bütçesi — bir hibe değil, fikri gerçek bir ürüne dönüştürmek için ayrılan bütçe. Birinci ekip, GİRVAK ile hizmet sözleşmesi imzalayarak platformu 4 aylık süreçte nihai ürüne taşır."
+      odul: "200.000 TL Platform Geliştirme Bütçesi"
     },
     {
-      cat:"program",
-      title:"OpenAI Öğrenci Kolektifi – Kampüs Lideri",
-      desc:"Öğrencilerin kampüste ChatGPT ve Codex ile proje geliştirmesine öncülük eden, OpenAI'nin desteklediği bir kampüs liderliği programı.",
-      date:"2026-08-31",
-      link:"https://openai.com/tr-TR/student-collective/",
-      meta:"Uzaktan / Kampüs bazlı · 2026 Güz – 2027 Yaz dönemi",
-      summary:"OpenAI Öğrenci Kolektifi, lisans öğrencilerine ChatGPT ve Codex'e erişim, eğitim, finansman ve destek sağlayarak kampüste yapay zeka ile proje geliştirme kültürünü büyütmeyi hedefliyor. Kampüs Liderleri ikili ekipler halinde atölyeler, haftalık çalışma oturumları ve sergileme etkinlikleri düzenliyor.",
-      tasksLabel:"Program Nasıl İşliyor",
-      tasks:[
-        { title:"Atölye Çalışmaları", desc:"Öğrencilerin yeni yapay zeka becerileri öğrendiği, proje seçtiği etkinlikler · Dönem başına dört." },
-        { title:"Stüdyo Saatleri", desc:"Projelere odaklanılan haftalık birlikte çalışma oturumları." },
-        { title:"Sergileme Etkinlikleri", desc:"Öğrencilerin yapay zeka ile ortaya koyduğu çalışmaların kutlandığı etkinlikler · Her dönem bir kez." },
-        { title:"Topluluk", desc:"Bağlantıda kalınan, yaklaşan fırsatların keşfedildiği ortak alan · Sürekli." }
-      ],
-      criteriaLabel:"Uygunluk Koşulları",
-      criteria:[
+      cat: "program",
+      title: "OpenAI Öğrenci Kolektifi – Kampüs Lideri",
+      desc: "Öğrencilerin kampüste ChatGPT ve Codex ile proje geliştirmesine öncülük eden, OpenAI'nin desteklediği bir kampüs liderliği programı.",
+      date: "2026-08-31",
+      link: "https://openai.com/tr-TR/student-collective/",
+      meta: "Uzaktan / Kampüs bazlı · 2026 Güz – 2027 Yaz dönemi",
+      summary: "OpenAI Öğrenci Kolektifi, lisans öğrencilerine ChatGPT ve Codex'e erişim, eğitim, finansman ve destek sağlayarak kampüste yapay zeka ile proje geliştirme kültürünü büyütmeyi hedefliyor.",
+      criteria: [
         "18 yaşında veya daha büyük olmak.",
-        "Ağustos 2026 itibarıyla bir lisans programına kayıtlı olmak ve Aralık 2027'den sonra mezun olmayı beklemek.",
-        "Ağustos 2026 – Haziran 2027 arasında haftada 4-6 saat ayırabilmek.",
-        "Eğitim görülen ülke şu an ABD, Kanada, İngiltere, Fransa, Almanya, Hindistan, Japonya veya G. Kore olmalı.",
-        "Başka bir yapay zeka programında/şirketinde elçi veya stajyer olmamak."
+        "Ağustos 2026 itibarıyla bir lisans programına kayıtlı olmak."
       ],
-      rewardLabel:"Size Sağlanacaklar",
-      odul:"Program süresince ChatGPT aboneliği ve Codex kredileri, kampüs etkinlikleri için finansman, OpenAI ekibi ve küresel Kampüs Liderleri ağına erişim, her dönem nakdi destek, Haziran 2027'de genel merkez ziyareti fırsatı.",
-      note:"Not: Program şu an Türkiye'de resmi olarak sunulmuyor. Ancak başvuru formu üzerinden ilgini belirtebilirsin — program genişledikçe Türkiye'deki başvurular değerlendirmeye alınacak deniyor. Başvuru linkini bulunca ekleyebilirim."
+      odul: "Program süresince ChatGPT aboneliği, Codex kredileri ve kampüs etkinlikleri için finansman."
     },
     {
-      cat:"burs",
-      title:"Nesin Vakfı Balat Konaklama Bursu",
-      desc:"İstanbul dışından gelip bu yıl İstanbul'da üniversiteye ilk kez başlayacak 5 öğrenciye barınma desteği sağlayan dayanışma temelli konaklama bursu.",
-      date:"2026-09-11",
-      link:"https://www.nesinvakfi.org/nesin-vakfi-konaklama-bursu-basvurulari-basladi/",
-      meta:"5 kontenjan · Balat, İstanbul · İlk kez üniversiteye başlayanlara özel",
-      summary:"Nesin Vakfı Balat Konaklama Bursu, üniversite eğitimine İstanbul'da ilk kez başlayacak 5 öğrenciye güvenli, düzenli ve dayanışma temelli bir yaşam alanı sunuyor. İstanbul dışında yaşayıp bu yıl İstanbul'da üniversiteye başlayacak ve barınma desteğine ihtiyaç duyan öğrenciler başvurabilir.",
-      criteriaLabel:"Kimler Başvurabilir",
-      criteria:[
-        "İstanbul'da bir üniversiteye ilk kez yerleşen öğrenciler.",
-        "Üniversite eğitimi için İstanbul'a şehir dışından gelecek öğrenciler."
-      ],
-      timeline:[
-        { date:"— 11 Eyl", label:"Başvuru", desc:"Son başvuru tarihi 11 Eylül 2026." },
-        { date:"14–16 Eyl", label:"Mülakatlar", desc:"Ön değerlendirmeyi geçen adaylarla mülakat yapılır." },
-        { date:"19 Eyl", label:"Sonuç açıklanması", desc:"Kabul edilen öğrenciler açıklanır." },
-        { date:"24–25 Eyl", label:"Konaklama başlangıcı", desc:"Kabul edilen öğrenciler yerleşime başlar." }
-      ],
-      note:"Değerlendirmede ekonomik durum ve akademik başarı dikkate alınıyor. Kontenjan sadece 5 kişi."
+      cat: "burs",
+      title: "Nesin Vakfı Balat Konaklama Bursu",
+      desc: "İstanbul dışından gelip bu yıl İstanbul'da üniversiteye ilk kez başlayacak 5 öğrenciye barınma desteği sağlayan konaklama bursu.",
+      date: "2026-09-11",
+      link: "https://www.nesinvakfi.org/nesin-vakfi-konaklama-bursu-basvurulari-basladi/",
+      meta: "5 kontenjan · Balat, İstanbul",
+      summary: "Nesin Vakfı Balat Konaklama Bursu, üniversite eğitimine İstanbul'da ilk kez başlayacak 5 öğrenciye güvenli bir yaşam alanı sunuyor."
     },
     {
-      cat:"burs",
-      title:"Sayra&Çınar Vakfı Eğitim Bursu",
-      desc:"Maddi ve/veya manevi koşullar nedeniyle nitelikli eğitime erişimi olmayan lise ve üniversite öğrencilerine aylık burs ve psikososyal destek sağlayan vakıf bursu.",
-      date:"2026-09-15",
-      link:"https://sayracinarvakfi.org.tr/egitim-destegi",
-      meta:"Lise: 2750 TL/ay · Üniversite: 5000 TL/ay · 9 ay (Ekim–Haziran)",
-      summary:"Sayra&Çınar Vakfı, lise ve üniversite öğrencilerinin eğitim hayatları boyunca ihtiyaçlarını belirleyerek onlara maddi ve manevi psikososyal gelişim desteği sağlıyor. Süreçler gizlilik ilkesine dayalı yürütülüyor.",
-      criteriaLabel:"Burs Kriterleri",
-      criteria:[
-        "T.C. uyruklu olmak.",
-        "Türkiye Cumhuriyeti sınırları içerisindeki devlet okullarında eğitim görüyor olmak.",
-        "25 yaşını aşmamış olmak.",
-        "Lise veya üniversite öğrencisi olmak.",
-        "Ailenin maddi durumunun öğrenimi sürdürmeye yeterli olmaması.",
-        "Başarılı olmak için istekli olmak.",
-        "Başka bir kamu/özel kurumdan burs almamak (KYK Bursu dahil)."
-      ],
-      tasksLabel:"Destekleyici Faaliyetler",
-      tasks:[
-        { title:"Sosyal Gelişim Programları", desc:"Uzman eğitmen, koç ve mentorlar aracılığıyla bireysel gelişim ve gelecek planlaması desteği." },
-        { title:"Psikolojik Danışmanlık ve Rehberlik", desc:"Akademik ve sosyal yaşamda psikolojik danışmanlık desteği." },
-        { title:"Sosyal Etkinlikler", desc:"Sosyal ağ kurmayı ve topluluk bilincini destekleyen etkinlikler." },
-        { title:"Gönüllülük", desc:"Vakıf çalışmalarına katılım ve gönüllülük teşviki." }
-      ],
-      rewardLabel:"Burs Tutarı ve Süresi",
-      odul:"Lise öğrencileri için aylık 2750 TL, üniversite öğrencileri için aylık 5000 TL burs. Ödemeler eğitim-öğretim yılı içinde 9 ay (Ekim-Haziran) boyunca yapılır. Devamlılık, öğrencinin istikrar ve başarı durumuna göre yıldan yıla değerlendirilir."
+      cat: "burs",
+      title: "Sayra&Çınar Vakfı Eğitim Bursu",
+      desc: "Maddi desteğe ihtiyaç duyan lise ve üniversite öğrencilerine aylık burs ve psikososyal destek sağlayan vakıf bursu.",
+      date: "2026-09-15",
+      link: "https://sayracinarvakfi.org.tr/egitim-destegi",
+      meta: "Lise: 2750 TL/ay · Üniversite: 5000 TL/ay · 9 ay",
+      summary: "Sayra&Çınar Vakfı, eğitim hayatları boyunca öğrencilere maddi ve psikososyal gelişim desteği sağlıyor.",
+      odul: "Lise için aylık 2750 TL, üniversite için aylık 5000 TL (Ekim-Haziran arası 9 ay)."
     },
     {
-      cat:"yarisma",
-      title:"Sürdürülebilirliğin Sorumlu Mühendisleri Ideathon 2026",
-      desc:"SADE ve Grundfos'un düzenlediği, sürdürülebilirlik problemlerine sistem düşüncesiyle çözüm geliştirilen 24 saatlik disiplinler arası ideathon.",
-      date:"2026-09-14",
-      link:"https://docs.google.com/forms/d/e/1FAIpQLSejTTD2CFXF6q8jeADIee9B-o__EVOshL6n8tWWedpZkN1LJQ/viewform",
-      meta:"25–26 Eylül 2026 · Dedeman İstanbul Otel · 24 saat, yüz yüze",
-      summary:"18-25 yaş arası lisans, yüksek lisans ve doktora öğrencilerini disiplinler arası takımlar halinde bir araya getiren, sürdürülebilirlik alanında gerçek bir probleme sistem düşüncesiyle yenilikçi çözüm geliştirmeyi hedefleyen 24 saatlik fikir maratonu.",
-      criteriaLabel:"Katılım Koşulları",
-      criteria:[
-        "18–25 yaş arası olmak.",
-        "Üniversite lisans, yüksek lisans veya doktora öğrencisi olmak.",
-        "Takım halinde katılım — kayıt sırasında tüm üyelerin hazır bulunması gerekiyor.",
-        "24 saat boyunca etkinlik alanında (Dedeman İstanbul Otel) bulunmak zorunlu, ayrılış yok.",
-        "Final sunumu 3 dakika + 2 dakika soru-cevap, en fazla 6 slayt."
-      ],
-      tasksLabel:"Program Akışı (Özet)",
-      tasks:[
-        { title:"25 Eylül Gündüz", desc:"Kayıt, açılış, ilham konuşması, networking, Eğitim 1: Tasarım Odaklı Düşünme, Çalışma Maratonu 1, Mentor Seansı 1, Eğitim 2: İş Modeli Kanvası." },
-        { title:"25 Eylül Akşam", desc:"Çalışma Maratonu 2, Mentor Seansı 2, müzik dinletisi, Eğitim 3: Pitching." },
-        { title:"Gece Seansı", desc:"Çalışma Maratonu 3 (sunum iskeleti), gece atıştırmalığı, dinlenme (02:00-05:00), Çalışma Maratonu 4 (sunumları tamamlama)." },
-        { title:"26 Eylül Sabah & Kapanış", desc:"Sunum provası, kahvaltı, final sunumları (takım başına 3 dk + 2 dk soru-cevap), jüri değerlendirmesi, ödül töreni." }
-      ],
-      rewardLabel:"Ödüller",
-      odul:"Dereceye giren ilk 3 takıma toplam 100.000 TL: 1.'ye 50.000 TL, 2.'ye 30.000 TL, 3.'ye 20.000 TL.",
-      note:"Etkinlik 25-26 Eylül'de Dedeman İstanbul Otel'de yapılacak, 24 saat boyunca alandan ayrılış yok."
+      cat: "yarisma",
+      title: "Sürdürülebilirliğin Sorumlu Mühendisleri Ideathon 2026",
+      desc: "SADE ve Grundfos'un düzenlediği 24 saatlik disiplinler arası sürdürülebilirlik fikir maratonu.",
+      date: "2026-09-14",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSejTTD2CFXF6q8jeADIee9B-o__EVOshL6n8tWWedpZkN1LJQ/viewform",
+      meta: "25–26 Eylül 2026 · Dedeman İstanbul Otel · 24 saat",
+      summary: "Sürdürülebilirlik alanında gerçek bir probleme sistem düşüncesiyle yenilikçi çözüm geliştirmeyi hedefleyen ideathon.",
+      odul: "Toplam 100.000 TL ödül havuzu (1.'ye 50.000 TL, 2.'ye 30.000 TL, 3.'ye 20.000 TL)."
     },
     {
-      cat:"program",
-      title:"TOBB Genç Ol – Meclis Üyeliği",
-      desc:"İstanbul Sanayi Odası destekli TOBB Genç Ol'un, girişimcilik odaklı öğrencileri karar masasına ve gerçek sektör deneyimine davet eden Meclis Üyeliği programı.",
-      date:"2026-09-24",
-      link:"https://docs.google.com/forms/d/e/1FAIpQLScYFTsDkiztaNd5Fvv3dLvlhFT8eftDIsxG_mUlavVltcnnhw/viewform",
-      meta:"İstanbul · 30+ üniversiteden girişimci ağı · Dönem boyunca aktif katılım",
-      summary:"TOBB Genç Ol Meclis Üyeliği, girişimcilik fikirlerini kampüs sınırlarının ötesine taşımak isteyen öğrencileri doğrudan karar sürecine davet ediyor. Hackathon, Fellow programı, case çalışmaları, Tea Talk ve sektör buluşmalarıyla gerçek saha tecrübesi ve güçlü bir network sunuyor.",
-      tasksLabel:"Meclis Üyesi Olarak Seni Neler Bekliyor",
-      tasks:[
-        { title:"Fikirden Projeye Dönüşüm", desc:"Hackathon, Fellow programı ve gerçek senaryolar üzerinden case çalışmalarıyla fikirleri iş modeline dönüştürme." },
-        { title:"Zirveyle Aynı Masada", desc:"Tea Talk ve sektör buluşmalarıyla öncü isimler ve sanayicilerle tecrübe paylaşımı." },
-        { title:"Güçlü ve Canlı Ekosistem", desc:"İstanbul'daki 30'dan fazla üniversiteden girişimci ve kulüp temsilcisiyle network." },
-        { title:"Gerçek Bir Etki Yarat", desc:"Gençlik Araştırma Komisyonu'nda yer alarak çözüm önerilerini karar alıcılara taşıma." },
-        { title:"TOBB İGGK Ayrıcalığı", desc:"TOBB İstanbul Genç Girişimciler Kurulu (İGGK) etkinliklerine doğrudan katılım hakkı." }
-      ]
+      cat: "program",
+      title: "TOBB Genç Ol – Meclis Üyeliği",
+      desc: "İSO destekli TOBB Genç Ol'un girişimci öğrencileri karar masasına davet eden Meclis Üyeliği programı.",
+      date: "2026-09-24",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLScYFTsDkiztaNd5Fvv3dLvlhFT8eftDIsxG_mUlavVltcnnhw/viewform",
+      meta: "İstanbul · 30+ üniversite ağı",
+      summary: "Hackathon, Fellow programı, case çalışmaları ve mentorluklarla gençleri iş dünyasıyla buluşturan aktif meclis programı."
     },
     {
-      cat:"burs",
-      title:"Anadolu Vakfı Burs Programı",
-      desc:"Maddi desteğe ihtiyaç duyan, akademik başarı gösteren üniversite öğrencilerine geri ödemesiz lisans eğitim bursu sağlıyor.",
-      date:"2026-09-30",
-      link:"https://basvuru.anadoluvakfi.org.tr/uye-ol?ReturnUrl=%2F",
-      meta:"Geri ödemesiz · 9 ay (Ekim–Haziran) · Bugüne kadar 30.000+ öğrenciye destek",
-      summary:"Anadolu Vakfı'nın Burs Programı, eğitimde fırsat eşitliği sağlamak amacıyla maddi desteğe ihtiyaç duyan başarılı üniversite öğrencilerinin lisans eğitimine destek oluyor. Ödemeler geri ödeme veya hizmet yükümlülüğü içermeden, Ekim-Haziran arası 9 ay boyunca düzenli olarak banka hesabına yapılıyor.",
-      criteriaLabel:"Kimler Başvurabilir",
-      criteria:[
-        "Türkiye Cumhuriyeti vatandaşı olmak.",
-        "Akademik başarı göstermek ve maddi desteğe ihtiyaç duymak.",
-        "Yurt içindeki devlet üniversitelerinde tam zamanlı lisans öğrencisi olmak, ya da",
-        "%100 burslu olarak bir vakıf üniversitesinde tam zamanlı lisans öğrencisi olmak."
-      ],
-      timeline:[
-        { date:"1 – 30 Eylül", label:"Başvuru dönemi", desc:"Her yıl bu tarihler arasında vakfın web sitesi üzerinden online başvuru alınıyor." }
-      ],
-      rewardLabel:"Burs Koşulları",
-      odul:"Geri ödeme veya hizmet yükümlülüğü yok. Ödemeler Ekim-Haziran arası 9 ay boyunca düzenli olarak bursiyerin banka hesabına yapılıyor."
+      cat: "burs",
+      title: "Anadolu Vakfı Burs Programı",
+      desc: "Maddi desteğe ihtiyaç duyan başarılı üniversite öğrencilerine geri ödemesiz lisans bursu.",
+      date: "2026-09-30",
+      link: "https://basvuru.anadoluvakfi.org.tr/uye-ol?ReturnUrl=%2F",
+      meta: "Geri ödemesiz · 9 ay (Ekim–Haziran)",
+      summary: "Devlet üniversiteleri ve %100 burslu vakıf lisans öğrencilerine yönelik 9 aylık karşılıksız burs."
     },
     {
-      cat:"burs",
-      title:"İSOV Mühendislik Bursu",
-      desc:"İstanbul Sanayi Odası Vakfı'nın, belirli üniversitelerin mühendislik fakültelerinde okuyan, gelir düzeyi düşük öğrencilere sağladığı burs programı.",
-      date:"2026-09-30",
-      link:"https://burs.isov.org.tr",
-      meta:"İstanbul, Kocaeli, Tekirdağ · Sadece mühendislik fakülteleri · Türk-Alman Üniversitesi dahil",
-      summary:"İSOV, gelir düzeyi düşük ve akademik başarı gösteren mühendislik öğrencilerine burs sağlıyor. Başvurular Burs Başvuru Sistemi veya İSOV Mobil Uygulama üzerinden online yapılıyor; uygun görülen adaylardan evrak istenip mülakata çağrılıyor.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "T.C. vatandaşı olmak.",
-        "Başka bir resmi/özel kuruluştan burs veya kredi almamak (KYK öğrenim kredisi/bursu ve engelli öğrenci bursları hariç).",
-        "Gelir düzeyi düşük olmak.",
-        "Ara sınıflar için yıllık genel not ortalaması 4 üzerinden en az 2,60 (ya da muadili).",
-        "Adli sicil kaydı bulunmamak.",
-        "İstanbul, Kocaeli veya Tekirdağ'daki bir eğitim kurumunda tam zamanlı öğrenci olmak.",
-        "Listelenen üniversitelerin mühendislik fakültelerinde öğrenim görüyor olmak (Türk-Alman Üniversitesi dahil).",
-        "Yurt dışında eğitim alan öğrencilere burs desteği yok."
-      ],
-      tasksLabel:"Başvuru Süreci",
-      tasks:[
-        { title:"Online Başvuru", desc:"1-30 Eylül arası Burs Başvuru Sistemi veya İSOV Mobil Uygulama üzerinden." },
-        { title:"Evrak Doğrulama", desc:"Burs Komisyonu'nca uygun görülen adaylardan bilgileri doğrulayan evrak istenir." },
-        { title:"Mülakat", desc:"Evrakları eksiksiz ve doğru olan adaylar mülakata çağrılır." },
-        { title:"Ödeme Başlangıcı", desc:"Mülakat sonucunda hak kazananlardan hesap bilgisi alınıp burs yatırılmaya başlanır." }
-      ],
-      note:"Kabul edilen üniversiteler arasında Boğaziçi, ODTÜ tarzı listede olmayan ama Galatasaray, Gebze Teknik, İTÜ, İstanbul Üniversitesi, Kocaeli, Marmara, MSGSÜ, Tekirdağ Namık Kemal, Türk-Alman Üniversitesi, YTÜ ve %100 burslu vakıf üniversitelerinin mühendislik bölümleri var. Burs, öğrenci mezun olduğunda, okuldan uzaklaştırma cezası alırsa, başka kurumdan burs alırsa veya 3 ay mazeretsiz bursu almazsa kesiliyor."
+      cat: "burs",
+      title: "İSOV Mühendislik Bursu",
+      desc: "İstanbul Sanayi Odası Vakfı'nın belirlenen üniversitelerdeki mühendislik öğrencilerine sunduğu burs programı.",
+      date: "2026-09-30",
+      link: "https://burs.isov.org.tr",
+      meta: "İstanbul, Kocaeli, Tekirdağ · Mühendislik fakülteleri",
+      summary: "Mühendislik fakültesi öğrencilerine yönelik karşılıksız burs imkanı (TAÜ dahil)."
     },
     {
-      cat:"burs",
-      title:"Milli Eğitim Vakfı (MEV) Ön Lisans-Lisans Bursu",
-      desc:"Milli Eğitim Vakfı'nın, maddi desteğe ihtiyacı olan başarılı ön lisans/lisans öğrencilerine sağladığı yükseköğretim bursu.",
-      date:"2026-09-30",
-      link:"https://mev.org.tr/burs/",
-      meta:"7-30 Eylül 2026 · Sadece örgün ön lisans/lisans (açıköğretim ve yurt dışı hariç)",
-      summary:"Milli Eğitim Vakfı, ön lisans ve lisans öğrenimi gören başarılı ve maddi desteğe ihtiyacı olan öğrencilere kontenjan dahilinde yükseköğretim bursu veriyor. Yüksek lisans ve doktora öğrencilerinin başvuruları değerlendirilmiyor.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "T.C. vatandaşı olmak.",
-        "Maddi desteğe ihtiyacı olmak.",
-        "Kazanç getiren herhangi bir işte çalışmamak.",
-        "Eğitiminde 'kısa süreli uzaklaştırma'dan daha ağır ceza almamış olmak.",
-        "Evli olmamak.",
-        "MEV'den burs almaya devam eden kardeşi olmamak (varsa puanı yüksek olana verilir).",
-        "Başvuru tarihi itibarıyla 25 yaşından küçük olmak.",
-        "Üniversitelerde örgün ön lisans/lisans öğrenimi görmek (açıköğretim, yurt dışı veya ekstern öğrenim kabul edilmiyor)."
-      ],
-      timeline:[
-        { date:"7 Eyl, 09:00", label:"Başvuru başlangıcı", desc:"Online başvuru formu açılıyor." },
-        { date:"30 Eyl, 17:00", label:"Başvuru bitişi", desc:"Son başvuru saati." }
-      ],
-      note:"Burs almaya uygun görülenlerden öğrenci belgesi, adli sicil kaydı, gelir belgesi gibi çok sayıda ek evrak isteniyor. Başvuruyu bilgisayardan yapmaları tavsiye ediliyor (mobil değil)."
+      cat: "burs",
+      title: "Milli Eğitim Vakfı (MEV) Ön Lisans-Lisans Bursu",
+      desc: "Ön lisans ve lisans düzeyinde örgün eğitim gören başarılı öğrencilere sağlanan yükseköğretim bursu.",
+      date: "2026-09-30",
+      link: "https://mev.org.tr/burs/",
+      meta: "7-30 Eylül 2026 · Örgün lisans & ön lisans",
+      summary: "Maddi desteğe ihtiyaç duyan örgün eğitim öğrencilerine kontenjan dahilinde verilen burs."
     },
     {
-      cat:"burs",
-      title:"Özdilek Vakfı Bursu",
-      desc:"Özdilek Holding'in devlet üniversitesi (veya %100 burslu vakıf üniversitesi) öğrencilerine sağladığı, geri ödemesiz aylık nakit burs.",
-      date:"2026-09-30",
-      link:"https://www.ozdilekvakfi.org.tr/tr/burslar",
-      meta:"Ekim-Haziran, 9 ay · Kesin başvuru tarihi belirtilmemiş",
-      summary:"Özdilek Vakfı, devlet üniversitesinde (veya %100 burslu bir vakıf üniversitesinde) lisans okuyan öğrencilere aylık nakit burs sağlıyor. Başvurular, üniversite yerleştirme sonuçlarının ardından Özdilek Vakfı sitesi üzerinden online yapılıyor.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "Devlet üniversitesinde okuyor olmak (%100 burslu özel üniversite öğrencileri de başvurabilir).",
-        "Lisans düzeyinde yeni kayıt yaptırmış veya ara sınıf olmak.",
-        "Devletten alınan kredi/burs hariç başka kurum veya kuruluştan burs almıyor olmak."
-      ],
-      rewardLabel:"Ödeme ve Kesilme Koşulları",
-      odul:"Ekim-Haziran arası, yılda toplam 9 ay aylık nakit ödeme (banka hesabına havale). Not ortalaması 2,50'nin altına düşerse, zorunlu derste 2+ başarısızlık olursa, okulla ilişik kesilirse veya disiplin cezası alınırsa burs kesiliyor.",
-      note:"Sitede net bir başvuru tarihi belirtilmemiş — üniversite yerleştirme sonuçlarının açıklanmasının ardından başvurular açılıyor, bu yüzden tarih yaklaşık verildi. Güncel duyuruları vakfın sitesinden takip etmek gerekiyor."
+      cat: "burs",
+      title: "Özdilek Vakfı Bursu",
+      desc: "Özdilek Holding'in devlet üniversitesi ve %100 burslu vakıf öğrencilerine sağladığı karşılıksız nakit burs.",
+      date: "2026-09-30",
+      link: "https://www.ozdilekvakfi.org.tr/tr/burslar",
+      meta: "Ekim-Haziran · 9 ay",
+      summary: "Lisans öğrencilerine düzenli olarak sağlanan nakit eğitim desteği."
     },
     {
-      cat:"burs",
-      title:"ETİ Yüksek Öğrenim İhtiyaç Bursu / Üstün Başarı Bursu",
-      desc:"ETİ'nin, belirli mühendislik ve İİBF bölümlerindeki (Mekatronik Mühendisliği dahil) ön lisans/lisans öğrencilerine sağladığı iki ayrı burs programı.",
-      date:"2026-09-15",
-      link:"https://burs.etietieti.com",
-      meta:"1-15 Eylül 2026 · Mekatronik Mühendisliği dahil belirli bölümler",
-      summary:"ETİ, iki farklı burs programı sunuyor: Yüksek Öğrenim İhtiyaç Bursu (lisans/önlisans, belirli bölümler) ve Üstün Başarı Bursu (yalnızca YKS'de ilk 1.500'e giren yeni kayıtlı lisans öğrencileri). Her iki burs da Ekim-Haziran arası destekleniyor.",
-      criteriaLabel:"Kimler Başvurabilir",
-      criteria:[
-        "Lisans (Mühendislik): Makine, Endüstri, Mekatronik, Elektrik-Elektronik, Bilgisayar, Gıda, Kimya Mühendislikleri.",
-        "Lisans (İİBF): İşletme, İktisat, Çalışma Ekonomisi ve Endüstriyel İlişkiler.",
-        "Ön lisans: Elektrik, Elektronik, Makine, Endüstriyel Otomasyon, Besin Teknolojisi.",
-        "Yüksek Öğrenim İhtiyaç Bursu için ara sınıflarda: hazırlık/ara sınıfta başarısız ders bulunmaması, not ortalaması 4'lük sistemde en az 2,00 (100'lük sistemde en az 50).",
-        "Üstün Başarı Bursu için: başvurulan yıl yeni kayıt yaptırmış olmak ve YKS'de ilk 1.500 kişi arasına girmek.",
-        "Bedensel/zihinsel özel gereksinimi olan adaylar da başvurabilir."
-      ],
-      note:"Mekatronik Mühendisliği bölümü kabul edilen bölümler arasında — mühendislik fakültesi öğrencileri için doğrudan uygun bir seçenek."
+      cat: "burs",
+      title: "ETİ Yüksek Öğrenim İhtiyaç Bursu",
+      desc: "ETİ'nin mühendislik ve İİBF bölümlerindeki öğrencilere sunduğu burs programı.",
+      date: "2026-09-15",
+      link: "https://burs.etietieti.com",
+      meta: "Mühendislik & İİBF öğrencileri",
+      summary: "Mekatronik, Bilgisayar, Makine ve işletme/iktisat gibi bölümlerin lisans öğrencilerine açık burs."
     },
     {
-      cat:"burs",
-      title:"Sabancı Vakfı Bursu",
-      desc:"2026 YKS'de belirli üniversitelere belirli puan türleri ve minimum puanlarla yerleşen öğrencilere sağlanan, geri ödemesiz üniversite bursu.",
-      date:"2026-10-16",
-      link:"https://www.sabancivakfi.org/burs-basvurusu",
-      meta:"Ekim-Haziran, 10 ay (Ekim'de çift ödeme) · Belirli 13 üniversite",
-      summary:"Sabancı Vakfı Bursları, üniversite burs komiteleri tarafından başarı durumu ve maddi ihtiyaç esas alınarak belirleniyor. Karşılıksız, geri ödeme veya mecburi hizmet yükümlülüğü içermiyor. Başvuru, kayıtlı olunan üniversitenin kendi burs ofisine yapılıyor.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "T.C. uyruklu olmak ve Türkiye'de tam zamanlı lisans öğrenimine kabul edilmiş olmak.",
-        "2026 YKS sonucunda listedeki üniversitelerden birine, belirtilen puan türü ve minimum puanla yerleşmiş olmak.",
-        "Minimum puanlar: Sayısal 480, Sözel 415, Eşit Ağırlık 420, Dil 450.",
-        "Üniversiteler: Ankara, Boğaziçi, Çukurova, Dokuz Eylül, Ege, Gazi, Hacettepe, İTÜ, İstanbul Ü., İstanbul Ü.-Cerrahpaşa, Marmara, ODTÜ, YTÜ."
-      ],
-      rewardLabel:"Ödeme",
-      odul:"2026-2027 ders yılında Ekim-Haziran arası 10 aylık ödeme (Ekim ayında çift ödeme). Burs tutarı sabancivakfi.org sitesinde ayrıca duyurulacak.",
-      note:"Türk-Alman Üniversitesi bu bursun kapsadığı üniversiteler arasında değil. Son başvuru tarihi üniversiteden üniversiteye değişebiliyor, üniversite ayrıca belirlemezse varsayılan son tarih 16 Ekim 2026."
+      cat: "burs",
+      title: "Sabancı Vakfı Bursu",
+      desc: "Belirlenen üniversitelere yüksek YKS puanlarıyla yerleşen öğrencilere sağlanan karşılıksız üniversite bursu.",
+      date: "2026-10-16",
+      link: "https://www.sabancivakfi.org/burs-basvurusu",
+      meta: "Ekim-Haziran · 10 ay",
+      summary: "Başarı kriterlerine göre ilgili üniversite burs ofisleri üzerinden dağıtılan vakıf bursu."
     },
     {
-      cat:"program",
-      title:"Anthropic Claude Kampüs Elçisi Programı",
-      desc:"Anthropic'in desteğiyle kampüste öğrenci odaklı yapay zeka topluluğu kurup yönetmeyi sağlayan, öğrenim seviyesine göre üç farklı yola ayrılan elçilik programı.",
-      date:"2026-09-12",
-      link:"https://form.typeform.com/to/ghysMPIY",
-      meta:"Uzaktan + kampüs bazlı · 3.600 USD nakit ödenek · Lisans/Yüksek Lisans/Doktora için ayrı yollar",
-      summary:"Program, öğrenim seviyesine göre üç farklı role ayrılıyor: lisans öğrencileri için Claude Builder Club liderliği, yüksek lisans öğrencileri için Claude Campus Conversations (AI ve toplum üzerine tartışma grupları), doktora/post-doc araştırmacılar için Claude Science atölyeleri. Her üç yol da 3.600 USD nakit ödenek içeriyor.",
-      tasksLabel:"Role Göre Sorumluluklar",
-      tasks:[
-        { title:"Lisans — Claude Builder Club", desc:"Kampüste AI builder kulübü kurup yönetmek, teknik/teknik olmayan atölyeler, hackathon ve demo geceleri düzenlemek, üyelerle düzenli güncelleme ve API kredisi gibi kaynaklar paylaşmak." },
-        { title:"Yüksek Lisans — Campus Conversations", desc:"AI ve toplum üzerine tartışma grupları ve etkinlikler düzenlemek, öğrencilerin Claude ile yaptıklarını sergileyebileceği alanlar yaratmak." },
-        { title:"Doktora/Post-doc — Science Workshops", desc:"AI-native bilim insanlarından oluşan bir topluluğa liderlik etmek, Claude for Science atölyeleri düzenlemek, Anthropic'in matematik ve bilim ekipleriyle konuşmacı etkinliklerine katılmak." }
-      ],
-      rewardLabel:"Sağlananlar",
-      odul:"3.600 USD nakit ödenek (her üç yol için de), Anthropic ekibi tarafından yürütülen AI atölyelerine erişim, global elçi topluluğuyla bağlantı, Claude ürün geliştirmesine geri bildirimle katkı sağlama fırsatı.",
-      note:"Başvurular 12 Eylül, Pasifik saatiyle 23:59'da (Türkiye saatiyle 13 Eylül sabahı) kapanıyor — çok yakın bir tarih."
+      cat: "program",
+      title: "Anthropic Claude Kampüs Elçisi Programı",
+      desc: "Anthropic'in desteğiyle kampüste yapay zeka topluluğu kurup yönetmeyi sağlayan küresel elçilik programı.",
+      date: "2026-09-12",
+      link: "https://form.typeform.com/to/ghysMPIY",
+      meta: "3.600 USD nakit ödenek · Lisans, YL ve Doktora yolları",
+      summary: "Kampüste Claude kulüpleri kurup yönetmek, atölye ve hackathon düzenlemek üzere öğrencilere sağlanan elçilik desteği.",
+      odul: "3.600 USD nakit katılım ödeneği ve API kredisi desteği."
     },
     {
-      cat:"program",
-      title:"Akbank Fellowship Programı",
-      desc:"18-25 yaş arası tüm üniversite öğrencilerine açık, bölüm ayrımı gözetmeyen, sürdürülebilirlikten girişimciliğe uzanan 8 aylık ücretsiz gelişim ve topluluk programı.",
-      date:"2026-10-10",
-      link:"https://www.akbankgenclikakademisi.com/akbank-fellowship-programi",
-      meta:"Hibrit (İstanbul & Zoom) · 8 ay · Tüm bölümlere açık, ücretsiz",
-      summary:"Akbank Fellowship, sürdürülebilirlik, girişimcilik, teknoloji, davranış bilimleri, tasarım odaklı düşünme ve duygusal zeka gibi alanlarda tersine mentörlükler, etki girişimi tasarımları ve ilham buluşmalarıyla ilerleyen 8 aylık bir topluluk deneyimi. Bölüm/disiplin önceliği yok, klasik CV değerlendirmesi yapılmıyor.",
-      criteriaLabel:"Kimler Başvurabilir",
-      criteria:[
-        "18-25 yaş arası olmak.",
-        "Ön lisans, lisans veya yüksek lisans öğrencisi olmak (herhangi bir bölüm/disiplin sınırı yok).",
-        "En az %80 katılım gösterebilecek olmak — hibrit toplantılara düzenli katılım bekleniyor.",
-        "İstanbul dışından olanlar da başvurabilir; yüz yüze buluşmalar için seyahat/konaklama Akbank tarafından karşılanıyor."
-      ],
-      rewardLabel:"Program Hakkında Önemli Notlar",
-      odul:"Program tamamen ücretsiz. Değerlendirme klasik bir CV/deneyim değerlendirmesi değil — merak, bakış açısı ve topluluğa katkı potansiyeli esas alınıyor. Başvuru cevaplarında yapay zeka kullanımını sınırlı tutmaları öneriliyor; yanıtların büyük ölçüde kendi seslerini yansıtması bekleniyor."
+      cat: "program",
+      title: "Akbank Fellowship Programı",
+      desc: "18-25 yaş arası tüm üniversite öğrencilerine açık, sürdürülebilirlikten teknolojiye uzanan 8 aylık gelişim topluluğu.",
+      date: "2026-10-10",
+      link: "https://www.akbankgenclikakademisi.com/akbank-fellowship-programi",
+      meta: "Hibrit (İstanbul & Zoom) · 8 ay · Ücretsiz",
+      summary: "Tersine mentörlük, etki tasarımı ve seminerlerle öğrencilerin yetkinliklerini geliştiren hibrit program."
     },
     {
-      cat:"program",
-      title:"Abdi İbrahim Meetup İstanbul #3",
-      desc:"İlaç endüstrisini yakından tanımak, üst düzey yöneticiler ve genç yeteneklerle networking yapmak isteyen üniversite öğrencilerine özel kariyer buluşması.",
-      date:"2026-10-11",
-      link:"https://anbeankampus.co/etkinlik-basvuru/abdi-ibrahim-meetup-istanbul-3/",
-      meta:"16 Ekim 2026 (09:00 - 17:00) · Renaissance İstanbul Polat Bosphorus Hotel · Yüz yüze",
-      summary:"Geçtiğimiz yıl büyük ilgi gören Abdi İbrahim Meetup, İstanbul'da üçüncü kez kapılarını açıyor! Farklı departmanlardan uzman konuşmacılarla ilaç endüstrisinin kapılarını aralayan, kariyer tavsiyeleri ve geleceğin trendlerinin paylaşıldığı tam günlük bir deneyim.",
-      tasksLabel:"Program Akışı & Paneller",
-      tasks:[
-        { title:"09:00 - 09:45", desc:"Welcoming & Kahvaltı ardından İK Kurumsal İletişim Grup Başkanı açılış konuşması." },
-        { title:"10:00 - 11:20", desc:"Ice Breaking aktivitesi ve 'Hayatı İyileştirenler: Kültür ve Kariyer' oturumu." },
-        { title:"11:40 - 12:40", desc:"İlham Veren Liderler Paneli (AbdiBio, Üretim & Tedarik, Finans ve İK liderleri ile)." },
-        { title:"13:40 - 15:30", desc:"Genç Yetenekler Paneli ve 'Bir Yapay Zekâ Ekibinin Güncesi: 6.000 Kişilik İlaç Şirketine Sıfırdan AI Kurmak' sunumu." },
-        { title:"15:30 - 17:00", desc:"Coffee & Connect, Ödüllü Yarışma / Çekiliş ve Kapanış." }
-      ],
-      criteriaLabel:"Katılım Bilgileri",
-      criteria:[
-        "Üniversite öğrencilerine yöneliktir.",
-        "Kontenjan sınırlı sayıdadır; seçilen adaylarla ayrıca iletişime geçilecektir.",
-        "Etkinlik tamamen ücretsizdir."
-      ],
-      rewardLabel:"Etkinlik Avantajları",
-      odul:"Sektör liderleri ile doğrudan networking, kahvaltı ve öğle yemeği ikramı, ödüllü yarışma ve çekilişlere katılım hakkı.",
-      note:"Son başvuru 11 Ekim 2026 saat 23:59'dur. Etkinlik 16 Ekim'de Renaissance İstanbul Polat Bosphorus Hotel'de gerçekleşecektir."
+      cat: "program",
+      title: "Abdi İbrahim Meetup İstanbul #3",
+      desc: "İlaç endüstrisini tanımak ve uzmanlarla networking yapmak isteyen öğrencilere yönelik kariyer buluşması.",
+      date: "2026-10-11",
+      link: "https://anbeankampus.co/etkinlik-basvuru/abdi-ibrahim-meetup-istanbul-3/",
+      meta: "16 Ekim 2026 · Renaissance İstanbul Polat Bosphorus Hotel",
+      summary: "Abdi İbrahim üst düzey yöneticileri ve ekipleriyle tam günlük ilham verici kariyer etkinliği."
     },
     {
-      cat:"burs",
-      title:"Toplum Gönüllüleri Vakfı (TOG) Gençlik Bursu",
-      desc:"Eğitiminde başarılı, sosyal yönü ve gönüllülük potansiyeli güçlü ön lisans ve lisans öğrencilerine yönelik karşılıksız destek programı.",
-      date:"2026-10-15",
-      link:"https://www.tog.org.tr/burs-basvurusu",
-      meta:"Lisans & Ön Lisans · Karşılıksız · Ayda min. 16 saat gönüllülük",
-      summary:"Toplum Gönüllüleri Vakfı (TOG), üniversiteli gençlerin maddi sıkıntı yaşamadan eğitimlerine devam etmesini ve aynı zamanda toplumsal barış ve dayanışmaya katkı sağlayan projelere katılmalarını destekliyor. Bursiyerler ayda en az 16 saat gönüllülük faaliyetlerinde yer alıyor.",
-      criteriaLabel:"Kimler Başvurabilir",
-      criteria:[
-        "T.C. vatandaşı olmak ve Türkiye'deki üniversitelerde ön lisans veya lisans düzeyinde örgün öğrenim görmek.",
-        "Yeni Sınıf Bursu: Üniversite 1. sınıf ve hazırlık sınıfı öğrencileri (tüm bölümler).",
-        "Ara Sınıf Bursu: 2. sınıf ve üzeri, 18-24 yaş aralığındaki öğrenciler.",
-        "Vakıf üniversitelerinde okuyan adayların %100 tam burslu olması zorunludur.",
-        "Toplumsal sorumluluk projelerine ve gönüllülük çalışmalarına açık olmak."
-      ],
-      tasksLabel:"Bursiyer Sorumlulukları",
-      tasks:[
-        { title:"Gönüllü Katılım", desc:"Her ay en az 16 saat TOG bünyesindeki sosyal sorumluluk projelerinde ve gençlik çalışmalarında aktif rol almak." },
-        { title:"Akademik Takip", desc:"Dönem boyunca belirlenen başarı kriterlerini korumak ve öğrenci belgelerini düzenli güncellemek." }
-      ],
-      rewardLabel:"Burs Detayları",
-      odul:"Karşılıksız aylık burs ödemesi. Burslar, yönetmelik çerçevesinde akademik başarı ve gönüllülük devamlılığı sağlandığı sürece lisans/ön lisans öğrenimi boyunca devam eder.",
-      note:"TOG bursları geri ödemesizdir ve diğer kurumlardan burs almaya engel teşkil etmeyen şeffaf bir değerlendirme sürecine sahiptir."
+      cat: "burs",
+      title: "Toplum Gönüllüleri Vakfı (TOG) Gençlik Bursu",
+      desc: "Gönüllülük ve başarı kriteri taşıyan üniversite öğrencilerine yönelik düzenli eğitim bursu.",
+      date: "2026-10-15",
+      link: "https://www.tog.org.tr/burs-basvurusu",
+      meta: "Lisans & Ön Lisans · Min. ayda 16 saat gönüllülük",
+      summary: "Akademik başarısını sürdüren ve sosyal sorumluluk projelerinde aktif yer alan öğrencilere karşılıksız destek."
     },
     {
-      cat:"burs",
-      title:"TEV Üniversite (Eğitim) Bursu",
-      desc:"Türk Eğitim Vakfı'nın Atatürk ilkelerine bağlı, başarılı ve maddi desteğe ihtiyacı olan lisans öğrencilerine verdiği karşılıksız burs programı.",
-      date:"2026-10-08",
-      link:"https://www.tev.org.tr/burs/tr/39/Universite-Egitim-Bursu",
-      meta:"8.000 TL / ay · 9 ay (Ekim–Haziran) · Başvuru: ObiGenç Uygulaması",
-      summary:"TEV Üniversite (Eğitim) Bursu, gençlerin eğitim hayatlarını maddi kaygı duymadan sürdürebilmelerini sağlamak, potansiyellerini açığa çıkarmak ve fırsat eşitliği yaratmak amacıyla lisans öğrencilerine 9 ay boyunca aylık 8.000 TL karşılıksız destek sunmaktadır.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "T.C. vatandaşı olmak.",
-        "Türkiye sınırları içinde devlet üniversitelerinde örgün lisans programına kayıtlı olmak (veya vakıf üniversitelerinde %100 burslu okumak).",
-        "Maddi desteğe ihtiyaç duymak ve ailesinin gelir durumu bursa elverişli olmak.",
-        "Ara sınıflar için genel not ortalamasının 4,00 üzerinden en az 2,50 olması ve başarısız ders sayısının belirli limitlerin altında bulunması.",
-        "Başka bir kamu veya özel kuruluştan burs almamak (KYK kredisi hariç tutulabilir; kılavuzdaki özel durumlar incelenmelidir)."
-      ],
-      timeline:[
-        { date:"14 Eylül 2026", label:"Başvuruların Başlaması", desc:"ObiGenç mobil uygulaması üzerinden sistem açılır." },
-        { date:"8 Ekim 2026", label:"Son Başvuru Tarihi", desc:"Form ve evrak tesliminin son günü." }
-      ],
-      rewardLabel:"Burs Miktarı ve Süresi",
-      odul:"Aylık 8.000 TL. Ödemeler eğitim dönemi boyunca Ekim – Haziran ayları arasında toplam 9 ay boyunca düzenli olarak bursiyerlerin hesaplarına yatırılır.",
-      note:"Başvurular sadece resmi ObiGenç (iOS / Android) uygulaması üzerinden alınmaktadır; web üzerinden doğrudan form doldurulamaz."
+      cat: "burs",
+      title: "TEV Üniversite (Eğitim) Bursu",
+      desc: "Türk Eğitim Vakfı'nın başarılı ve maddi desteğe ihtiyacı olan lisans öğrencilerine verdiği karşılıksız burs.",
+      date: "2026-10-08",
+      link: "https://www.tev.org.tr/burs/tr/39/Universite-Egitim-Bursu",
+      meta: "8.000 TL / ay · 9 ay · Başvuru: ObiGenç",
+      summary: "Lisans öğrencilerine aylık 8.000 TL tutarında sağlanan eğitim desteği. Başvurular ObiGenç mobil uygulamasındandır.",
+      odul: "Aylık 8.000 TL (Ekim-Haziran arası 9 ay)."
     },
     {
-      cat:"burs",
-      title:"ÇYDD Eğitim Bursu (2026-2027)",
-      desc:"Çağdaş Yaşamı Destekleme Derneği'nin devlet okullarında örgün okuyan ihtiyaç sahibi ortaöğretim ve lisans öğrencilerine sağladığı karşılıksız burs.",
-      date:"2026-09-20",
-      link:"https://portal.cydd.org.tr",
-      meta:"Üniversite: 5.000 TL/ay · Ortaöğretim: 2.500 TL/ay · 10 ay (Eylül–Haziran)",
-      summary:"Çağdaş Yaşamı Destekleme Derneği (ÇYDD), Atatürk ilke ve devrimlerine bağlı, ekonomik desteğe ihtiyacı olan başarılı öğrencilere eğitimde fırsat eşitliği sağlamak üzere karşılıksız burs vermektedir. Aday öğrenciler için başvuru süresi son derece kısıtlıdır.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "T.C. vatandaşı olmak.",
-        "Türkiye sınırları içinde okumak (KKTC ve yurt dışı üniversiteler kabul edilmez).",
-        "Devlet okullarında örgün eğitim görmek (Burslu dahi olsa vakıf veya özel üniversite öğrencilerine burs verilmez).",
-        "Ekonomik olarak bursa ihtiyacı bulunmak ve akademik olarak başarılı olmak.",
-        "Birden fazla kurumdan burs almıyor olmak.",
-        "Ortaöğrenim veya lisans/ön lisans öğrencisi olmak (Yüksek lisans ve doktora öğrencileri başvuramaz)."
-      ],
-      timeline:[
-        { date:"14 – 20 Eyl 2026", label:"Yeni Başvuru (Aday Öğrenci)", desc:"Ortaöğretim ve üniversite öğrencileri için online form süreci." },
-        { date:"25 Eyl – 9 Eki 2026", label:"Kayıt Yenileme", desc:"Mevcut bursiyerler için yenileme dönemi." }
-      ],
-      rewardLabel:"Burs Miktarı ve Süreci",
-      odul:"Üniversite öğrencileri için aylık 5.000 TL, ortaöğretim öğrencileri için aylık 2.500 TL. Ödemeler Eylül - Haziran ayları arasında 10 ay boyunca yapılır.",
-      note:"Başvurular yalnızca online portal üzerinden alınmaktadır. Aday yeni öğrenciler için son günün 20 Eylül 2026 olduğunu unutmayın."
+      cat: "burs",
+      title: "ÇYDD Eğitim Bursu (2026-2027)",
+      desc: "ÇYDD'nin devlet okullarında okuyan öğrencilere sunduğu karşılıksız burs programı.",
+      date: "2026-09-20",
+      link: "https://portal.cydd.org.tr",
+      meta: "Üniversite: 5.000 TL/ay · Ortaöğretim: 2.500 TL/ay",
+      summary: "Devlet okullarında örgün okuyan başarılı öğrencilere 10 ay boyunca verilen karşılıksız burs.",
+      odul: "Üniversite için aylık 5.000 TL, ortaöğretim için aylık 2.500 TL."
     },
     {
-      cat:"burs",
-      title:"ASKEV Binnaz Melin Eğitim Bursu",
-      desc:"Bilginer-Melin Ayvalık Sanat Kültür Eğitim Vakfı'nın lise, MYO, lisans ve lisansüstü öğrencilerine sunduğu karşılıksız başarı ve ihtiyaç bursu.",
-      date:"2026-10-15",
-      link:"https://www.askev.org.tr/Guncel/2026-2027-Egitim-ogretim-yili-ASKEV-Binnaz-Melin-egitim-bursu-basvurulari-basladi",
-      meta:"Lise, MYO, Lisans, Y. Lisans & Doktora · Başarı & İhtiyaç Odaklı",
-      summary:"ASKEV tarafından her yıl düzenli olarak verilen Binnaz Melin Eğitim Bursu; ortaöğretimden lisansüstüne kadar farklı eğitim kademelerindeki maddi olanakları yetersiz ve başarılı öğrencilere karşılıksız destek sağlamaktadır.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "T.C. vatandaşı olmak ve adli sicil kaydı bulunmamak.",
-        "Maddi olanakları yetersiz olmak (gelir ve mal varlığı durumu belgelenmelidir).",
-        "Ortaöğretim (Lise): Bir önceki yıl başarı puanı (veya ortaokul diploma notu) en az 70.00/100 olmalıdır.",
-        "Üniversite & MYO Ara Sınıf: Not ortalaması 4.00 üzerinden en az 2.50 (veya 100 üzerinden 70) olmalı ve üst sınıfa geçmiş bulunmalıdır.",
-        "Üniversite 1. Sınıf: Lise diploma notu 70.00 ve üzeri olmalıdır.",
-        "Lisansüstü (Yüksek Lisans / Doktora): Lisans mezuniyet ortalaması en az 3.00/4.00 (veya 80/100) olmalıdır."
-      ],
-      rewardLabel:"Burs Kapsamı",
-      odul:"Ortaöğretim, MYO, lisans, lisansüstü ve bilimsel araştırma kategorilerinde karşılıksız nakit eğitim bursu.",
-      note:"Değerlendirmede akademik başarı derecesi yüksek olan adaylara ve lisansüstü için ülkenin kültürel/teknolojik gelişimine katkı sağlayan tez konularına öncelik verilmektedir."
+      cat: "burs",
+      title: "ASKEV Binnaz Melin Eğitim Bursu",
+      desc: "Lise, MYO, lisans ve lisansüstü öğrencilerine yönelik karşılıksız başarı ve ihtiyaç bursu.",
+      date: "2026-10-15",
+      link: "https://www.askev.org.tr/Guncel/2026-2027-Egitim-ogretim-yili-ASKEV-Binnaz-Melin-egitim-bursu-basvurulari-basladi",
+      meta: "Lise, Lisans ve Lisansüstü",
+      summary: "Akademik başarı ortalaması yüksek olan ve maddi desteğe ihtiyaç duyan öğrencilere nakit eğitim desteği."
     },
     {
-      cat:"burs",
-      title:"REV (Rönesans Eğitim Vakfı) Burs Programı",
-      desc:"Rönesans Eğitim Vakfı'nın bugüne dek 14.000+ gence ulaştırdığı, online gelişim akademisi ve gönüllülük şartı içeren 9 aylık lisans bursu.",
-      date:"2026-10-15",
-      link:"https://rev.org.tr/projeler/rev-burs-programi",
-      meta:"9 Ay (Ekim - Haziran) · REV Akademi + 50 Saat Gönüllülük Şartı",
-      summary:"REV Burs Programı yalnızca maddi destek değil; REV Akademi üzerinden kişisel gelişim eğitimleri ve toplumsal fayda yaratan sosyal sorumluluk projeleriyle gençleri çok yönlü destekleyen bir ekosistemdir.",
-      criteriaLabel:"Başvuru Koşulları",
-      criteria:[
-        "Türkiye'de ilk örgün lisans öğrenimini görüyor olmak (Açık öğretim, 2. üniversite ve lisansüstü dahil değildir).",
-        "Akademik başarı: Alttan ders bulunmaması ve dönemsel ortalamanın 4.00 üzerinden en az 2.00 olması.",
-        "Gönüllülük taahhüdü: Yılda toplam en az 50 saat STK'larda veya kendi projesinde gönüllü çalışma yapmak ve belgelemek.",
-        "REV Akademi Kişisel Gelişim Platformu eğitimlerini eksiksiz tamamlamak.",
-        "Zorunlu stajlar ve part-time çalışma hariç, SGK'ya bağlı tam zamanlı bir işte çalışmıyor olmak.",
-        "KYK bursu/kredisi hariç başka bir kurumdan burs almamak."
-      ],
-      timeline:[
-        { date:"15 Eyl – 15 Eki 2026", label:"Online Başvuru", desc:"basvuru.revakademi.org üzerinden sistem açık kalacaktır." },
-        { date:"Ön Değerlendirme Sonrası", label:"Evrak Teslimi", desc:"Seçilen adaylar belgelerini vakfın Ankara adresine posta/kargo ile iletir." }
-      ],
-      rewardLabel:"Burs Süresi ve Haklar",
-      odul:"Ekim-Haziran ayları arasında toplam 9 ay boyunca karşılıksız burs ödemesi. Part-time çalışan öğrenciler de başvurabilir.",
-      note:"KYK hariç başka bir kurumdan burs alındığının tespit edilmesi durumunda geriye dönük yapılan ödemelerin iadesi talep edilmektedir."
+      cat: "burs",
+      title: "REV (Rönesans Eğitim Vakfı) Burs Programı",
+      desc: "REV Akademi gelişim platformu ve yıllık 50 saat gönüllülük şartı içeren lisans bursu.",
+      date: "2026-10-15",
+      link: "https://rev.org.tr/projeler/rev-burs-programi",
+      meta: "Ekim - Haziran (9 Ay) · Kişisel Gelişim + Gönüllülük",
+      summary: "Örgün ilk lisans eğitimini sürdüren ve başarı kriterlerini sağlayan öğrencilere karşılıksız eğitim desteği."
     },
     {
-      cat:"program",
-      title:"Genç İşi Tarım Kuluçka Programı",
-      desc:"Nestlé Türkiye'nin tarım ve gıda alanında yenilikçi çözümler geliştiren genç girişimcilere sunduğu 12 haftalık kuluçka ve tohum desteği programı.",
-      date:"2026-09-28",
-      link:"https://www.nestle.com.tr/gencisitarim",
-      meta:"12 Hafta · Toplam 1.500.000 TL Tohum Desteği · 18–30 Yaş Girişimciler",
-      summary:"Genç İşi Tarım Kuluçka Programı; tarım ve gıda ekosisteminde yenilikçi bir çözüm geliştiren, prototipini veya MVP'sini oluşturmuş ya da ilk müşteri doğrulamalarını yapmaya başlamış 18–30 yaş arası girişimcilere yönelik 12 haftalık kapsamlı bir gelişim maratonudur.",
-      tasksLabel:"Programın Sağlayacağı Kazanımlar",
-      tasks:[
-        { title:"İş Modeli & Strateji", desc:"İş modelini güçlendirme ve pazara giriş stratejisini netleştirme desteği." },
-        { title:"Birebir Mentorluk", desc:"Nestlé profesyonelleri ve sektör uzmanlarından düzenli birebir mentorluk seansları." },
-        { title:"Yetkinlik Eğitimleri", desc:"Finansal planlama, marka yönetimi, pazarlama, satış ve etkili iletişim eğitimleri." },
-        { title:"Ağ & İş Birliği", desc:"Müşteri, pilot uygulama ve sektör paydaşlarıyla iş birliği yapma fırsatları." }
-      ],
-      criteriaLabel:"Kimler Başvurabilir",
-      criteria:[
-        "En az 2 kişiden oluşan bir ekip olmak.",
-        "Tüm ekip üyelerinin 18–30 yaş aralığında olması.",
-        "Tarım ve gıda değer zincirindeki somut bir probleme çözüm üretmek.",
-        "Prototip, MVP veya ilk müşteri doğrulamasına/satışına sahip olmak.",
-        "12 haftalık eğitim ve gelişim sürecine ekip olarak aktif katılım sağlamak."
-      ],
-      rewardLabel:"Tohum Destek Ödülleri",
-      odul:"1. Ekip: 750.000 TL tohum desteği + 3 aylık iş geliştirme mentorluğu | 2. Ekip: 500.000 TL tohum desteği | 3. Ekip: 250.000 TL tohum desteği. Tüm ekiplere ekosistem bağlantıları ve görünürlük sağlanır.",
-      note:"Son başvuru 28 Eylül 2026'dır. Kazanan ilk 3 ekip Seçici Kurul karşısındaki final sunumları sonucunda belirlenecektir."
+      cat: "program",
+      title: "Genç İşi Tarım Kuluçka Programı",
+      desc: "Nestlé Türkiye'nin tarım ve gıda alanındaki genç girişimcilere sunduğu 12 haftalık hızlandırma ve tohum desteği.",
+      date: "2026-09-28",
+      link: "https://www.nestle.com.tr/gencisitarim",
+      meta: "12 Hafta · 1.500.000 TL Tohum Desteği",
+      summary: "Tarım ve gıda alanında MVP veya müşteri doğrulaması olan 18-30 yaş arası ekiplere hibe ve mentorluk.",
+      odul: "1.'ye 750.000 TL, 2.'ye 500.000 TL, 3.'ye 250.000 TL tohum desteği."
     },
     {
-      cat:"burs",
-      title:"ÇEV (Çağdaş Eğitim Vakfı) Burs Başvurusu",
-      desc:"İstanbul il sınırları içinde öğrenim gören, ihtiyaç sahibi ve başarılı ortaöğretim ve üniversite öğrencilerine karşılıksız eğitim bursu.",
-      date:"2026-09-30",
-      link:"
+      cat: "burs",
+      title: "ÇEV (Çağdaş Eğitim Vakfı) Burs Başvurusu",
+      desc: "İstanbul il sınırları içinde öğrenim gören ihtiyaç sahibi öğrencilere karşılıksız eğitim bursu.",
+      date: "2026-09-30",
+      link: "https://www.cev.org.tr/burs-basvurusu/",
+      meta: "İstanbul içi örgün öğrenciler",
+      summary: "İstanbul'da okuyan lisans ve ortaöğretim öğrencilerine yönelik karşılıksız burs desteği."
+    },
+    {
+      cat: "burs",
+      title: "Vehbi Koç Vakfı (VKV) Üniversite Bursu",
+      desc: "VKV'nin anlaşmalı olduğu 28 üniversitedeki yetenekli lisans öğrencilerine sağladığı karşılıksız burs.",
+      date: "2026-10-09",
+      link: "https://www.vkv.org.tr/tr/burslar/universite-burslari-75",
+      meta: "Belirli 28 Devlet Üniversitesi · Min. 2.50 Ortalama",
+      summary: "Lisans öğrenimi süresince devam eden köklü üniversite eğitim bursu programı."
+    },
+    {
+      cat: "program",
+      title: "Youth Voice Lab: Dortmund & Beşiktaş (Erasmus+)",
+      desc: "Beşiktaş Belediyesi ve forum JUGEND! e.V. ortaklığında, masrafları karşılanan Almanya & İstanbul gençlik değişimi.",
+      date: "2026-10-11",
+      link: "https://forms.gle/hNjuoeJT4EUXQv5R8",
+      meta: "Almanya & Türkiye · 18–30 Yaş · %100 Hibe Destekli",
+      summary: "Dortmund ve Beşiktaş'ta yerel karar alma mekanizmaları ve genç katılımı üzerine gerçekleşecek iki aşamalı değişim.",
+      odul: "Uçak bileti, vize, konaklama ve yemek masrafları Erasmus+ tarafından karşılanır."
+    },
+    {
+      cat: "program",
+      title: "DiscoverEU 2026: Ücretsiz Avrupa Seyahat Kartı",
+      desc: "Erasmus+ kapsamında 18 yaşındaki gençlere Avrupa'yı trenle keşfetme imkanı sunan ücretsiz Interrail bileti.",
+      date: "2026-10-15",
+      link: "https://youth.europa.eu/discovereu_en",
+      meta: "18 Yaş (2008 Doğumlular) · Ücretsiz Seyahat Kartı",
+      summary: "Avrupa tren ağında geçerli ücretsiz seyahat bileti ve yüzlerce noktada indirim sağlayan DiscoverEU kartı.",
+      odul: "Ücretsiz Avrupa tren bileti (Travel Pass) ve indirim kartı."
+    }
+  ];
+
+  const CAT_LABEL = { burs: "Burs", staj: "Staj", yarisma: "Yarışma", program: "Program" };
+  const FILTERS = [
+    { key: "all", label: "Tümü" },
+    { key: "burs", label: "Burslar" },
+    { key: "staj", label: "Stajlar" },
+    { key: "yarisma", label: "Yarışmalar" },
+    { key: "program", label: "Programlar" }
+  ];
+
+  let activeFilter = "all";
+
+  function daysRemaining(dateStr) {
+    if (!dateStr) return -999;
+    const parts = dateStr.split('-');
+    const target = new Date(parts[0], parts[1] - 1, parts[2]);
+    const now = new Date();
+    const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diff = Math.round((target - nowMidnight) / (1000 * 60 * 60 * 24));
+    return diff;
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const parts = dateStr.split('-');
+    const d = new Date(parts[0], parts[1] - 1, parts[2]);
+    return d.toLocaleDateString('tr-TR', { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+
+  function renderFilters() {
+    const el = document.getElementById('filters');
+    if (!el) return;
+    el.innerHTML = FILTERS.map(f =>
+      `<button class="filter-btn ${f.key === activeFilter ? 'active' : ''}" data-key="${f.key}">${f.label}</button>`
+    ).join('');
+    el.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.key;
+        renderFilters();
+        renderRows();
+      });
+    });
+  }
+
+  function renderRows() {
+    const sorted = [...DATA].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const filtered = activeFilter === "all" ? sorted : sorted.filter(d => d.cat === activeFilter);
+    const el = document.getElementById('rows');
+    if (!el) return;
+
+    if (filtered.length === 0) {
+      el.innerHTML = `<div style="padding:32px; text-align:center; color:var(--muted); font-family:var(--font-display); font-size:13px;">BU KATEGORİDE ŞU AN KAYIT YOK</div>`;
+      return;
+    }
+
+    el.innerHTML = filtered.map((d, i) => {
+      const remain = daysRemaining(d.date);
+      const remainText = remain < 0 ? "Süresi geçti" : remain === 0 ? "Bugün" : `${remain} gün`;
+      const realIndex = DATA.indexOf(d);
+      return `
+        <div class="row" style="animation-delay:${i * 0.03}s; cursor:pointer;" data-idx="${realIndex}" role="button" tabindex="0">
+          <span class="tag ${d.cat}">${CAT_LABEL[d.cat] || d.cat}</span>
+          <div>
+            <div class="row-title">${d.title} <span style="color:var(--flap-amber); font-size:11px;">→ Detay</span></div>
+            <div class="row-desc">${d.desc}</div>
+          </div>
+          <div class="row-date">${formatDate(d.date)}</div>
+          <div class="row-remain">${remainText}</div>
+        </div>`;
+    }).join('');
+
+    el.querySelectorAll('.row[data-idx]').forEach(row => {
+      row.addEventListener('click', () => openModal(parseInt(row.dataset.idx, 10)));
+      row.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          openModal(parseInt(row.dataset.idx, 10));
+        }
+      });
+    });
+  }
+
+  function openModal(idx) {
+    const d = DATA[idx];
+    if (!d) return;
+    const backdrop = document.getElementById('modal-backdrop');
+    const content = document.getElementById('modal-content');
+    if (!backdrop || !content) return;
+
+    let html = `
+      <div class="modal-top">
+        <div>
+          <h2>${d.title}</h2>
+          <div class="modal-meta">${d.meta || ''}</div>
+        </div>
+        <button class="modal-close" id="modal-close-btn" type="button">✕</button>
+      </div>
+      <div class="modal-section"><p>${d.summary || d.desc}</p></div>
+    `;
+
+    if (d.tasks && d.tasks.length) {
+      html += `<div class="modal-section"><h3>${d.tasksLabel || 'Detaylar'}</h3><ul class="modal-list">`;
+      html += d.tasks.map(t => `<li><div class="li-title">${t.title}</div>${t.desc}</li>`).join('');
+      html += `</ul></div>`;
+    }
+
+    if (d.criteria && d.criteria.length) {
+      html += `<div class="modal-section"><h3>${d.criteriaLabel || 'Başvuru Kriterleri'}</h3><ul class="modal-list">`;
+      html += d.criteria.map(c => `<li>${c}</li>`).join('');
+      html += `</ul></div>`;
+    }
+
+    if (d.odul) {
+      html += `<div class="modal-section"><h3>${d.rewardLabel || 'Ödül / Destek'}</h3><p>${d.odul}</p></div>`;
+    }
+
+    if (d.link && d.link !== "#") {
+      html += `<a class="modal-cta" href="${d.link}" target="_blank" rel="noopener">Hemen Başvur →</a>`;
+    }
+
+    content.innerHTML = html;
+    backdrop.classList.add('open');
+
+    const closeBtn = document.getElementById('modal-close-btn');
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  }
+
+  function closeModal() {
+    const backdrop = document.getElementById('modal-backdrop');
+    if (backdrop) backdrop.classList.remove('open');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const backdrop = document.getElementById('modal-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', (e) => {
+        if (e.target.id === 'modal-backdrop') closeModal();
+      });
+    }
+
+    function renderNext() {
+      const activeItems = DATA
+        .filter(d => daysRemaining(d.date) >= 0)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      const next = activeItems[0];
+      const titleEl = document.getElementById('next-title');
+      const countEl = document.getElementById('countdown');
+
+      if (!next) {
+        if (titleEl) titleEl.textContent = "Yaklaşan aktif başvuru yok";
+        if (countEl) countEl.innerHTML = "";
+        return;
+      }
+
+      if (titleEl) titleEl.textContent = next.title;
+      const remain = daysRemaining(next.date);
+      const days = Math.max(remain, 0);
+      if (countEl) {
+        countEl.innerHTML = `
+          <div class="flap"><span class="num">${String(days).padStart(2, '0')}</span><span class="unit">Gün</span></div>
+        `;
+      }
+    }
+
+    renderFilters();
+    renderRows();
+    renderNext();
+
+    const updatedEl = document.getElementById('updated');
+    if (updatedEl) {
+      updatedEl.textContent = new Date().toLocaleDateString('tr-TR', { day: '2-digit', month: 'long', year: 'numeric' });
+    }
+  });
+</script>
+
+</body>
+</html>
