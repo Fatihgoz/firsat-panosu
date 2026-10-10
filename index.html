@@ -339,7 +339,7 @@
 <header>
   <div class="eyebrow">Ahmet Fatih Göz sunar</div>
   <h1>FIRSAT PANOSU</h1>
-  <p>Burs, staj ve yarışma başvurularını tek panoda topladım. Kaçırma.</p>
+  <p>Burs, staj, yarışma ve zirve başvurularını tek panoda topladım. Kaçırma.</p>
 </header>
 
 <div class="next-strip">
@@ -371,23 +371,8 @@
 </div>
 
 <script>
-  // Yalnızca süresi dolmamış, aktif fırsatlar
+  // Aktif, süresi devam eden fırsatlar
   const DATA = [
-    {
-      cat: "program",
-      title: "Akbank Fellowship Programı",
-      desc: "18-25 yaş arası tüm üniversite öğrencilerine açık, sürdürülebilirlikten teknolojiye uzanan 8 aylık ücretsiz gelişim topluluğu.",
-      date: "2026-10-10",
-      link: "https://www.akbankgenclikakademisi.com/akbank-fellowship-programi",
-      meta: "Hibrit (İstanbul & Zoom) · 8 ay · Ücretsiz",
-      summary: "Tersine mentörlük, etki tasarımı ve seminerlerle öğrencilerin yetkinliklerini geliştiren hibrit gelişim programı.",
-      criteria: [
-        "18-25 yaş arası olmak.",
-        "Ön lisans, lisans veya yüksek lisans öğrencisi olmak (Bölüm kısıtlaması yok).",
-        "En az %80 katılım sağlayabilmek."
-      ],
-      odul: "Tamamen ücretsiz eğitimler, mentorluklar ve seyahat/konaklama desteği."
-    },
     {
       cat: "program",
       title: "Abdi İbrahim Meetup İstanbul #3",
@@ -398,7 +383,7 @@
       summary: "Abdi İbrahim üst düzey yöneticileri ve departman liderleriyle tam günlük kariyer oturumları, paneller ve networking.",
       criteria: [
         "Üniversite öğrencilerine yöneliktir.",
-        "Kontenjan sınırlıdır ve katılım ücretsizdir."
+        "Kontenjan sınırlıdır ve katılım tamamen ücretsizdir."
       ],
       odul: "Sektör liderleriyle networking, kahvaltı/öğle yemeği ve ödüllü yarışmalar."
     },
@@ -416,6 +401,22 @@
         "Aralık 2026 (Dortmund) ve Mart 2027 (Beşiktaş) buluşmalarına katılım taahhüt etmek."
       ],
       odul: "Gidiş-dönüş uçak biletleri, vize harçları, konaklama ve yemek masrafları %100 karşılanır."
+    },
+    {
+      cat: "program",
+      title: "Ankara Çözümler Atölyesi (SADE x Grundfos)",
+      desc: "ODTÜ'de mühendislik ve mimarlık öğrencilerine yönelik, doğrulanabilir dijital sertifikalı sürdürülebilirlik atölyesi.",
+      date: "2026-10-14",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLScCbT9r6ui6jgMYpogD217k8Rvc2F98Ow_wR0kjlhIWR1WAoA/viewform",
+      meta: "16 Ekim 2026 (13:00-18:00) · ODTÜ Araştırma Parkı, Ankara · Sertifikalı",
+      summary: "Sürdürülebilirlik Adımları Derneği ve Grundfos ortaklığında düzenlenen atölyede döngüsel ekonomi, su yönetimi ve enerji verimliliği gibi başlıklarda yaratıcı çözümler üretilecektir.",
+      criteria: [
+        "18–30 yaş arası olmak.",
+        "Mühendislik veya mimarlık fakültesi öğrencisi ya da yeni mezunu olmak.",
+        "ODTÜ Araştırma Parkı'ndaki fiziksel etkinliğe katılım sağlayabilmek."
+      ],
+      odul: "Sertifier üzerinden LinkedIn'e eklenebilir doğrulanabilir dijital sertifika ve sektör uzmanlarıyla birebir çalışma fırsatı.",
+      note: "Son başvuru 14 Ekim Çarşamba saat 18:00'dir. Kontenjan sınırlıdır."
     },
     {
       cat: "program",
@@ -490,6 +491,23 @@
         "2026 YKS ile kılavuzda yer alan 13 üniversiteden birine belirtilen taban puanlarla yerleşmiş olmak."
       ],
       odul: "Ekim-Haziran arası 10 aylık ödeme (Ekim ayında çift ödeme)."
+    },
+    {
+      cat: "yarisma",
+      title: "Boğaziçi Game Jam '26 (BGJ'26)",
+      desc: "COMPEC tarafından düzenlenen; PS5 Slim, Xbox Series S ve donanım ödüllü 48 saatlik fiziksel oyun maratonu.",
+      date: "2026-10-18",
+      link: "https://bogazicigamejam.com",
+      meta: "48 Saat Fiziksel Maraton · Boğaziçi Üniversitesi · Ücretsiz & Yemek/Konaklama Dahil",
+      summary: "Boğaziçi Üniversitesi Bilişim Kulübü (COMPEC) Oyun Geliştirme Alt Kurulu tarafından düzenlenen Boğaziçi Game Jam; 48 saat boyunca verilen tema etrafında oyun geliştirip jüriye sunacağınız prestijli bir yarışmadır.",
+      criteria: [
+        "Oyun geliştirmeye ilgi duyan tüm üniversite öğrencilerine açıktır.",
+        "Takımlar 1-4 kişi arasında olabilir (tek kişi katılım mümkündür).",
+        "Katılım tamamen ücretsizdir.",
+        "Kendi bilgisayar/donanımınızı yanınızda getirmeniz gerekmektedir."
+      ],
+      odul: "1.'ye PS5 Slim Digital, 2.'ye Xbox Series S, Ses Tasarımına DJI Mic Mini 2S + Razer Kulaklık, Görüntü Tasarımına Samsung 27' Odyssey G4 Monitör, Atmosfer Ödülüne Logitech G Pro X60 Klavye, Mansiyon için Samsung 1TB SSD.",
+      note: "Etkinlik boyunca yemekler, atıştırmalıklar ve dinlenme alanı ücretsiz sağlanır. Oyunlar itch.io üzerinden teslim edilecektir."
     },
     {
       cat: "program",
@@ -614,7 +632,7 @@
     }
 
     if (d.odul) {
-      html += `<div class="modal-section"><h3>Kazanımlar / Destek</h3><p>${d.odul}</p></div>`;
+      html += `<div class="modal-section"><h3>Kazanımlar / Ödüller</h3><p>${d.odul}</p></div>`;
     }
 
     if (d.note) {
@@ -622,7 +640,7 @@
     }
 
     if (d.link && d.link !== "#") {
-      html += `<a class="modal-cta" href="${d.link}" target="_blank" rel="noopener">Hemen Başvur / Katıl →</a>`;
+      html += `<a class="modal-cta" href="${d.link}" target="_blank" rel="noopener">Hemen Başvur / İncele →</a>`;
     }
 
     content.innerHTML = html;
