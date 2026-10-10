@@ -371,240 +371,51 @@
 </div>
 
 <script>
+  // Yalnızca süresi dolmamış, aktif fırsatlar
   const DATA = [
-    {
-      cat: "yarisma",
-      title: "Zemin360 Hackathon",
-      desc: "GİRVAK tarafından düzenlenen, kurum–girişim ekosistemine yönelik açık kaynak platform geliştirme maratonu · 9-11 Ekim, İstanbul · 200.000 TL platform geliştirme bütçesi",
-      date: "2026-09-07",
-      link: "https://airtable.com/appwOYmzlsgb0Kh5k/pagLdSaJjKrcEvozp/form",
-      meta: "9–11 Ekim 2026 · İstanbul · Yüz yüze",
-      summary: "Türkiye Girişimcilik Vakfı (GİRVAK) ve program paydaşlarının iş birliğiyle düzenlenen; genç yeteneklerle kurumları ortak bir zeminde buluşturan bir geliştirme maratonu.",
-      criteria: [
-        "Ekipler minimum 1, maksimum 3 kişiden oluşmalıdır.",
-        "18–30 yaş aralığında olmak gerekir.",
-        "Yazılım geliştirme, UI/UX veya ürün geliştirme deneyimi aranır."
-      ],
-      odul: "200.000 TL Platform Geliştirme Bütçesi"
-    },
-    {
-      cat: "program",
-      title: "OpenAI Öğrenci Kolektifi – Kampüs Lideri",
-      desc: "Öğrencilerin kampüste ChatGPT ve Codex ile proje geliştirmesine öncülük eden, OpenAI'nin desteklediği bir kampüs liderliği programı.",
-      date: "2026-08-31",
-      link: "https://openai.com/tr-TR/student-collective/",
-      meta: "Uzaktan / Kampüs bazlı · 2026 Güz – 2027 Yaz dönemi",
-      summary: "OpenAI Öğrenci Kolektifi, lisans öğrencilerine ChatGPT ve Codex'e erişim, eğitim, finansman ve destek sağlayarak kampüste yapay zeka ile proje geliştirme kültürünü büyütmeyi hedefliyor.",
-      criteria: [
-        "18 yaşında veya daha büyük olmak.",
-        "Ağustos 2026 itibarıyla bir lisans programına kayıtlı olmak."
-      ],
-      odul: "Program süresince ChatGPT aboneliği, Codex kredileri ve kampüs etkinlikleri için finansman."
-    },
-    {
-      cat: "burs",
-      title: "Nesin Vakfı Balat Konaklama Bursu",
-      desc: "İstanbul dışından gelip bu yıl İstanbul'da üniversiteye ilk kez başlayacak 5 öğrenciye barınma desteği sağlayan konaklama bursu.",
-      date: "2026-09-11",
-      link: "https://www.nesinvakfi.org/nesin-vakfi-konaklama-bursu-basvurulari-basladi/",
-      meta: "5 kontenjan · Balat, İstanbul",
-      summary: "Nesin Vakfı Balat Konaklama Bursu, üniversite eğitimine İstanbul'da ilk kez başlayacak 5 öğrenciye güvenli bir yaşam alanı sunuyor."
-    },
-    {
-      cat: "burs",
-      title: "Sayra&Çınar Vakfı Eğitim Bursu",
-      desc: "Maddi desteğe ihtiyaç duyan lise ve üniversite öğrencilerine aylık burs ve psikososyal destek sağlayan vakıf bursu.",
-      date: "2026-09-15",
-      link: "https://sayracinarvakfi.org.tr/egitim-destegi",
-      meta: "Lise: 2750 TL/ay · Üniversite: 5000 TL/ay · 9 ay",
-      summary: "Sayra&Çınar Vakfı, eğitim hayatları boyunca öğrencilere maddi ve psikososyal gelişim desteği sağlıyor.",
-      odul: "Lise için aylık 2750 TL, üniversite için aylık 5000 TL (Ekim-Haziran arası 9 ay)."
-    },
-    {
-      cat: "yarisma",
-      title: "Sürdürülebilirliğin Sorumlu Mühendisleri Ideathon 2026",
-      desc: "SADE ve Grundfos'un düzenlediği 24 saatlik disiplinler arası sürdürülebilirlik fikir maratonu.",
-      date: "2026-09-14",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLSejTTD2CFXF6q8jeADIee9B-o__EVOshL6n8tWWedpZkN1LJQ/viewform",
-      meta: "25–26 Eylül 2026 · Dedeman İstanbul Otel · 24 saat",
-      summary: "Sürdürülebilirlik alanında gerçek bir probleme sistem düşüncesiyle yenilikçi çözüm geliştirmeyi hedefleyen ideathon.",
-      odul: "Toplam 100.000 TL ödül havuzu (1.'ye 50.000 TL, 2.'ye 30.000 TL, 3.'ye 20.000 TL)."
-    },
-    {
-      cat: "program",
-      title: "TOBB Genç Ol – Meclis Üyeliği",
-      desc: "İSO destekli TOBB Genç Ol'un girişimci öğrencileri karar masasına davet eden Meclis Üyeliği programı.",
-      date: "2026-09-24",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLScYFTsDkiztaNd5Fvv3dLvlhFT8eftDIsxG_mUlavVltcnnhw/viewform",
-      meta: "İstanbul · 30+ üniversite ağı",
-      summary: "Hackathon, Fellow programı, case çalışmaları ve mentorluklarla gençleri iş dünyasıyla buluşturan aktif meclis programı."
-    },
-    {
-      cat: "burs",
-      title: "Anadolu Vakfı Burs Programı",
-      desc: "Maddi desteğe ihtiyaç duyan başarılı üniversite öğrencilerine geri ödemesiz lisans bursu.",
-      date: "2026-09-30",
-      link: "https://basvuru.anadoluvakfi.org.tr/uye-ol?ReturnUrl=%2F",
-      meta: "Geri ödemesiz · 9 ay (Ekim–Haziran)",
-      summary: "Devlet üniversiteleri ve %100 burslu vakıf lisans öğrencilerine yönelik 9 aylık karşılıksız burs."
-    },
-    {
-      cat: "burs",
-      title: "İSOV Mühendislik Bursu",
-      desc: "İstanbul Sanayi Odası Vakfı'nın belirlenen üniversitelerdeki mühendislik öğrencilerine sunduğu burs programı.",
-      date: "2026-09-30",
-      link: "https://burs.isov.org.tr",
-      meta: "İstanbul, Kocaeli, Tekirdağ · Mühendislik fakülteleri",
-      summary: "Mühendislik fakültesi öğrencilerine yönelik karşılıksız burs imkanı (TAÜ dahil)."
-    },
-    {
-      cat: "burs",
-      title: "Milli Eğitim Vakfı (MEV) Ön Lisans-Lisans Bursu",
-      desc: "Ön lisans ve lisans düzeyinde örgün eğitim gören başarılı öğrencilere sağlanan yükseköğretim bursu.",
-      date: "2026-09-30",
-      link: "https://mev.org.tr/burs/",
-      meta: "7-30 Eylül 2026 · Örgün lisans & ön lisans",
-      summary: "Maddi desteğe ihtiyaç duyan örgün eğitim öğrencilerine kontenjan dahilinde verilen burs."
-    },
-    {
-      cat: "burs",
-      title: "Özdilek Vakfı Bursu",
-      desc: "Özdilek Holding'in devlet üniversitesi ve %100 burslu vakıf öğrencilerine sağladığı karşılıksız nakit burs.",
-      date: "2026-09-30",
-      link: "https://www.ozdilekvakfi.org.tr/tr/burslar",
-      meta: "Ekim-Haziran · 9 ay",
-      summary: "Lisans öğrencilerine düzenli olarak sağlanan nakit eğitim desteği."
-    },
-    {
-      cat: "burs",
-      title: "ETİ Yüksek Öğrenim İhtiyaç Bursu",
-      desc: "ETİ'nin mühendislik ve İİBF bölümlerindeki öğrencilere sunduğu burs programı.",
-      date: "2026-09-15",
-      link: "https://burs.etietieti.com",
-      meta: "Mühendislik & İİBF öğrencileri",
-      summary: "Mekatronik, Bilgisayar, Makine ve işletme/iktisat gibi bölümlerin lisans öğrencilerine açık burs."
-    },
-    {
-      cat: "burs",
-      title: "Sabancı Vakfı Bursu",
-      desc: "Belirlenen üniversitelere yüksek YKS puanlarıyla yerleşen öğrencilere sağlanan karşılıksız üniversite bursu.",
-      date: "2026-10-16",
-      link: "https://www.sabancivakfi.org/burs-basvurusu",
-      meta: "Ekim-Haziran · 10 ay",
-      summary: "Başarı kriterlerine göre ilgili üniversite burs ofisleri üzerinden dağıtılan vakıf bursu."
-    },
-    {
-      cat: "program",
-      title: "Anthropic Claude Kampüs Elçisi Programı",
-      desc: "Anthropic'in desteğiyle kampüste yapay zeka topluluğu kurup yönetmeyi sağlayan küresel elçilik programı.",
-      date: "2026-09-12",
-      link: "https://form.typeform.com/to/ghysMPIY",
-      meta: "3.600 USD nakit ödenek · Lisans, YL ve Doktora yolları",
-      summary: "Kampüste Claude kulüpleri kurup yönetmek, atölye ve hackathon düzenlemek üzere öğrencilere sağlanan elçilik desteği.",
-      odul: "3.600 USD nakit katılım ödeneği ve API kredisi desteği."
-    },
     {
       cat: "program",
       title: "Akbank Fellowship Programı",
-      desc: "18-25 yaş arası tüm üniversite öğrencilerine açık, sürdürülebilirlikten teknolojiye uzanan 8 aylık gelişim topluluğu.",
+      desc: "18-25 yaş arası tüm üniversite öğrencilerine açık, sürdürülebilirlikten teknolojiye uzanan 8 aylık ücretsiz gelişim topluluğu.",
       date: "2026-10-10",
       link: "https://www.akbankgenclikakademisi.com/akbank-fellowship-programi",
       meta: "Hibrit (İstanbul & Zoom) · 8 ay · Ücretsiz",
-      summary: "Tersine mentörlük, etki tasarımı ve seminerlerle öğrencilerin yetkinliklerini geliştiren hibrit program."
+      summary: "Tersine mentörlük, etki tasarımı ve seminerlerle öğrencilerin yetkinliklerini geliştiren hibrit gelişim programı.",
+      criteria: [
+        "18-25 yaş arası olmak.",
+        "Ön lisans, lisans veya yüksek lisans öğrencisi olmak (Bölüm kısıtlaması yok).",
+        "En az %80 katılım sağlayabilmek."
+      ],
+      odul: "Tamamen ücretsiz eğitimler, mentorluklar ve seyahat/konaklama desteği."
     },
     {
       cat: "program",
       title: "Abdi İbrahim Meetup İstanbul #3",
-      desc: "İlaç endüstrisini tanımak ve uzmanlarla networking yapmak isteyen öğrencilere yönelik kariyer buluşması.",
+      desc: "İlaç endüstrisini tanımak ve uzmanlarla networking yapmak isteyen öğrencilere yönelik tam günlük kariyer buluşması.",
       date: "2026-10-11",
       link: "https://anbeankampus.co/etkinlik-basvuru/abdi-ibrahim-meetup-istanbul-3/",
-      meta: "16 Ekim 2026 · Renaissance İstanbul Polat Bosphorus Hotel",
-      summary: "Abdi İbrahim üst düzey yöneticileri ve ekipleriyle tam günlük ilham verici kariyer etkinliği."
-    },
-    {
-      cat: "burs",
-      title: "Toplum Gönüllüleri Vakfı (TOG) Gençlik Bursu",
-      desc: "Gönüllülük ve başarı kriteri taşıyan üniversite öğrencilerine yönelik düzenli eğitim bursu.",
-      date: "2026-10-15",
-      link: "https://www.tog.org.tr/burs-basvurusu",
-      meta: "Lisans & Ön Lisans · Min. ayda 16 saat gönüllülük",
-      summary: "Akademik başarısını sürdüren ve sosyal sorumluluk projelerinde aktif yer alan öğrencilere karşılıksız destek."
-    },
-    {
-      cat: "burs",
-      title: "TEV Üniversite (Eğitim) Bursu",
-      desc: "Türk Eğitim Vakfı'nın başarılı ve maddi desteğe ihtiyacı olan lisans öğrencilerine verdiği karşılıksız burs.",
-      date: "2026-10-08",
-      link: "https://www.tev.org.tr/burs/tr/39/Universite-Egitim-Bursu",
-      meta: "8.000 TL / ay · 9 ay · Başvuru: ObiGenç",
-      summary: "Lisans öğrencilerine aylık 8.000 TL tutarında sağlanan eğitim desteği. Başvurular ObiGenç mobil uygulamasındandır.",
-      odul: "Aylık 8.000 TL (Ekim-Haziran arası 9 ay)."
-    },
-    {
-      cat: "burs",
-      title: "ÇYDD Eğitim Bursu (2026-2027)",
-      desc: "ÇYDD'nin devlet okullarında okuyan öğrencilere sunduğu karşılıksız burs programı.",
-      date: "2026-09-20",
-      link: "https://portal.cydd.org.tr",
-      meta: "Üniversite: 5.000 TL/ay · Ortaöğretim: 2.500 TL/ay",
-      summary: "Devlet okullarında örgün okuyan başarılı öğrencilere 10 ay boyunca verilen karşılıksız burs.",
-      odul: "Üniversite için aylık 5.000 TL, ortaöğretim için aylık 2.500 TL."
-    },
-    {
-      cat: "burs",
-      title: "ASKEV Binnaz Melin Eğitim Bursu",
-      desc: "Lise, MYO, lisans ve lisansüstü öğrencilerine yönelik karşılıksız başarı ve ihtiyaç bursu.",
-      date: "2026-10-15",
-      link: "https://www.askev.org.tr/Guncel/2026-2027-Egitim-ogretim-yili-ASKEV-Binnaz-Melin-egitim-bursu-basvurulari-basladi",
-      meta: "Lise, Lisans ve Lisansüstü",
-      summary: "Akademik başarı ortalaması yüksek olan ve maddi desteğe ihtiyaç duyan öğrencilere nakit eğitim desteği."
-    },
-    {
-      cat: "burs",
-      title: "REV (Rönesans Eğitim Vakfı) Burs Programı",
-      desc: "REV Akademi gelişim platformu ve yıllık 50 saat gönüllülük şartı içeren lisans bursu.",
-      date: "2026-10-15",
-      link: "https://rev.org.tr/projeler/rev-burs-programi",
-      meta: "Ekim - Haziran (9 Ay) · Kişisel Gelişim + Gönüllülük",
-      summary: "Örgün ilk lisans eğitimini sürdüren ve başarı kriterlerini sağlayan öğrencilere karşılıksız eğitim desteği."
-    },
-    {
-      cat: "program",
-      title: "Genç İşi Tarım Kuluçka Programı",
-      desc: "Nestlé Türkiye'nin tarım ve gıda alanındaki genç girişimcilere sunduğu 12 haftalık hızlandırma ve tohum desteği.",
-      date: "2026-09-28",
-      link: "https://www.nestle.com.tr/gencisitarim",
-      meta: "12 Hafta · 1.500.000 TL Tohum Desteği",
-      summary: "Tarım ve gıda alanında MVP veya müşteri doğrulaması olan 18-30 yaş arası ekiplere hibe ve mentorluk.",
-      odul: "1.'ye 750.000 TL, 2.'ye 500.000 TL, 3.'ye 250.000 TL tohum desteği."
-    },
-    {
-      cat: "burs",
-      title: "ÇEV (Çağdaş Eğitim Vakfı) Burs Başvurusu",
-      desc: "İstanbul il sınırları içinde öğrenim gören ihtiyaç sahibi öğrencilere karşılıksız eğitim bursu.",
-      date: "2026-09-30",
-      link: "https://www.cev.org.tr/burs-basvurusu/",
-      meta: "İstanbul içi örgün öğrenciler",
-      summary: "İstanbul'da okuyan lisans ve ortaöğretim öğrencilerine yönelik karşılıksız burs desteği."
-    },
-    {
-      cat: "burs",
-      title: "Vehbi Koç Vakfı (VKV) Üniversite Bursu",
-      desc: "VKV'nin anlaşmalı olduğu 28 üniversitedeki yetenekli lisans öğrencilerine sağladığı karşılıksız burs.",
-      date: "2026-10-09",
-      link: "https://www.vkv.org.tr/tr/burslar/universite-burslari-75",
-      meta: "Belirli 28 Devlet Üniversitesi · Min. 2.50 Ortalama",
-      summary: "Lisans öğrenimi süresince devam eden köklü üniversite eğitim bursu programı."
+      meta: "16 Ekim 2026 · Renaissance İstanbul Polat Bosphorus Hotel · Yüz yüze",
+      summary: "Abdi İbrahim üst düzey yöneticileri ve departman liderleriyle tam günlük kariyer oturumları, paneller ve networking.",
+      criteria: [
+        "Üniversite öğrencilerine yöneliktir.",
+        "Kontenjan sınırlıdır ve katılım ücretsizdir."
+      ],
+      odul: "Sektör liderleriyle networking, kahvaltı/öğle yemeği ve ödüllü yarışmalar."
     },
     {
       cat: "program",
       title: "Youth Voice Lab: Dortmund & Beşiktaş (Erasmus+)",
-      desc: "Beşiktaş Belediyesi ve forum JUGEND! e.V. ortaklığında, masrafları karşılanan Almanya & İstanbul gençlik değişimi.",
+      desc: "Beşiktaş Belediyesi ve forum JUGEND! e.V. ortaklığında, tüm masrafları karşılanan Almanya & İstanbul gençlik değişimi.",
       date: "2026-10-11",
       link: "https://forms.gle/hNjuoeJT4EUXQv5R8",
-      meta: "Almanya & Türkiye · 18–30 Yaş · %100 Hibe Destekli",
-      summary: "Dortmund ve Beşiktaş'ta yerel karar alma mekanizmaları ve genç katılımı üzerine gerçekleşecek iki aşamalı değişim.",
-      odul: "Uçak bileti, vize, konaklama ve yemek masrafları Erasmus+ tarafından karşılanır."
+      meta: "Almanya & Türkiye · 18–30 Yaş · %100 Hibe Destekli (Erasmus+)",
+      summary: "Dortmund ve Beşiktaş'ta yerel karar alma mekanizmaları ve demokratik genç katılımı üzerine gerçekleşecek iki aşamalı gençlik projesi.",
+      criteria: [
+        "18–30 yaş aralığında olmak.",
+        "Türkiye'de ikamet ediyor olmak.",
+        "Aralık 2026 (Dortmund) ve Mart 2027 (Beşiktaş) buluşmalarına katılım taahhüt etmek."
+      ],
+      odul: "Gidiş-dönüş uçak biletleri, vize harçları, konaklama ve yemek masrafları %100 karşılanır."
     },
     {
       cat: "program",
@@ -612,9 +423,89 @@
       desc: "Erasmus+ kapsamında 18 yaşındaki gençlere Avrupa'yı trenle keşfetme imkanı sunan ücretsiz Interrail bileti.",
       date: "2026-10-15",
       link: "https://youth.europa.eu/discovereu_en",
-      meta: "18 Yaş (2008 Doğumlular) · Ücretsiz Seyahat Kartı",
-      summary: "Avrupa tren ağında geçerli ücretsiz seyahat bileti ve yüzlerce noktada indirim sağlayan DiscoverEU kartı.",
-      odul: "Ücretsiz Avrupa tren bileti (Travel Pass) ve indirim kartı."
+      meta: "1-15 Ekim 2026 · 18 Yaş (2008 Doğumlular) · Ücretsiz Seyahat Kartı",
+      summary: "Avrupa demiryolu ağında geçerli ücretsiz seyahat bileti ve konaklama, kültür, ulaşım alanlarında indirim kartı sunan Erasmus+ programı.",
+      criteria: [
+        "1 Ocak 2008 ile 31 Aralık 2008 tarihleri arasında doğmuş olmak.",
+        "T.C. vatandaşı veya yasal mukimi olmak.",
+        "Online bilgi yarışmasını (quiz) tamamlamak."
+      ],
+      odul: "Ücretsiz Avrupa Seyahat Kartı (Travel Pass) ve DiscoverEU İndirim Kartı."
+    },
+    {
+      cat: "burs",
+      title: "Toplum Gönüllüleri Vakfı (TOG) Gençlik Bursu",
+      desc: "Sosyal yönü güçlü ve başarı kriteri taşıyan lisans/ön lisans öğrencilerine yönelik düzenli eğitim bursu.",
+      date: "2026-10-15",
+      link: "https://www.tog.org.tr/burs-basvurusu",
+      meta: "Lisans & Ön Lisans · Ayda min. 16 saat gönüllülük şartı",
+      summary: "Eğitim hayatına devam eden ve ayda en az 16 saat sosyal sorumluluk projelerinde yer alan gençlere sağlanan karşılıksız burs.",
+      criteria: [
+        "Devlet üniversiteleri veya %100 burslu vakıf öğrencisi olmak.",
+        "Hazırlık, 1. sınıf veya ara sınıf olmak (18-24 yaş).",
+        "Toplum Gönüllüleri projelerinde aktif rol almayı taahhüt etmek."
+      ],
+      odul: "Öğrenim süresi boyunca devam eden karşılıksız aylık burs."
+    },
+    {
+      cat: "burs",
+      title: "ASKEV Binnaz Melin Eğitim Bursu",
+      desc: "Lise, MYO, lisans ve lisansüstü öğrencilerine yönelik karşılıksız başarı ve ihtiyaç bursu.",
+      date: "2026-10-15",
+      link: "https://www.askev.org.tr/Guncel/2026-2027-Egitim-ogretim-yili-ASKEV-Binnaz-Melin-egitim-bursu-basvurulari-basladi",
+      meta: "Lise, MYO, Lisans, Y. Lisans & Doktora",
+      summary: "Bilginer-Melin Vakfı tarafından maddi imkanı yetersiz ve başarı ortalaması yüksek öğrencilere verilen karşılıksız burs.",
+      criteria: [
+        "T.C. vatandaşı olmak ve adli sicil kaydı bulunmamak.",
+        "Üniversite ara sınıflar için min. 2.50 / 4.00 ortalama.",
+        "1. sınıflar için lise mezuniyet notunun en az 70 olması."
+      ],
+      odul: "Karşılıksız nakit eğitim bursu."
+    },
+    {
+      cat: "burs",
+      title: "REV (Rönesans Eğitim Vakfı) Burs Programı",
+      desc: "Online REV Akademi eğitimleri ve yıllık 50 saat gönüllülük şartı içeren 9 aylık lisans bursu.",
+      date: "2026-10-15",
+      link: "https://rev.org.tr/projeler/rev-burs-programi",
+      meta: "Ekim - Haziran (9 Ay) · Kişisel Gelişim + Gönüllülük",
+      summary: "Rönesans Eğitim Vakfı'nın örgün lisans öğrencilerine yönelik maddi desteğin yanında akademi eğitimleri sağladığı burs programı.",
+      criteria: [
+        "İlk örgün lisans programında öğrenim görüyor olmak.",
+        "Alttan dersi bulunmamak ve dönemsel min. 2.00 ortalama sağlamak.",
+        "Yılda en az 50 saat gönüllülük yapmak ve belgelemek."
+      ],
+      odul: "Ekim-Haziran arası 9 ay boyunca düzenli karşılıksız burs."
+    },
+    {
+      cat: "burs",
+      title: "Sabancı Vakfı Bursu",
+      desc: "Belirlenen üniversitelere yüksek YKS puanlarıyla yerleşen öğrencilere sağlanan karşılıksız lisans bursu.",
+      date: "2026-10-16",
+      link: "https://www.sabancivakfi.org/burs-basvurusu",
+      meta: "Ekim-Haziran (10 Ay) · Belirlenen 13 Üniversite",
+      summary: "Başarı durumu ve maddi ihtiyaç esas alınarak ilgili üniversitelerin burs ofisleri üzerinden yürütülen köklü vakıf bursu.",
+      criteria: [
+        "T.C. vatandaşı olmak.",
+        "2026 YKS ile kılavuzda yer alan 13 üniversiteden birine belirtilen taban puanlarla yerleşmiş olmak."
+      ],
+      odul: "Ekim-Haziran arası 10 aylık ödeme (Ekim ayında çift ödeme)."
+    },
+    {
+      cat: "program",
+      title: "Breaking Barriers: Dreamers to Doers Zirvesi",
+      desc: "Boğaziçi Üniversitesi Güney Kampüs'te gerçekleşecek, girişimcilik dünyasının önde gelen isimlerini ağırlayan ücretsiz ve sertifikalı zirve.",
+      date: "2026-10-23",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSegT1-F0NAYRLl-q8k5aVvIoGGvq5ah3oYh3fqap1aZxG_aKA/viewform",
+      meta: "23 Ekim Cuma (10:00 - 17:00) · Boğaziçi Üniversitesi · Ücretsiz & Sertifikalı",
+      summary: "Girişimcilik dünyasından ilham verici hikayeler dinlemek, yenilikçi fikirler keşfetmek ve ekosistem liderleriyle tanışmak isteyen tüm öğrencilere açık zirve.",
+      criteria: [
+        "Tüm üniversite öğrencilerine açıktır.",
+        "Etkinlik tamamen ücretsizdir.",
+        "Katılımcılara resmi sertifika verilecektir."
+      ],
+      odul: "Resmi katılım sertifikası ve ekosistem liderleriyle doğrudan networking imkanı.",
+      note: "Yer: Boğaziçi Üniversitesi Güney Kampüs, Natuk Birkan Binası, İbrahim Bodur Oditoryumu."
     }
   ];
 
@@ -674,7 +565,7 @@
 
     el.innerHTML = filtered.map((d, i) => {
       const remain = daysRemaining(d.date);
-      const remainText = remain < 0 ? "Süresi geçti" : remain === 0 ? "Bugün" : `${remain} gün`;
+      const remainText = remain < 0 ? "Süresi geçti" : remain === 0 ? "Bugün Son Gün" : `${remain} gün`;
       const realIndex = DATA.indexOf(d);
       return `
         <div class="row" style="animation-delay:${i * 0.03}s; cursor:pointer;" data-idx="${realIndex}" role="button" tabindex="0">
@@ -716,24 +607,22 @@
       <div class="modal-section"><p>${d.summary || d.desc}</p></div>
     `;
 
-    if (d.tasks && d.tasks.length) {
-      html += `<div class="modal-section"><h3>${d.tasksLabel || 'Detaylar'}</h3><ul class="modal-list">`;
-      html += d.tasks.map(t => `<li><div class="li-title">${t.title}</div>${t.desc}</li>`).join('');
-      html += `</ul></div>`;
-    }
-
     if (d.criteria && d.criteria.length) {
-      html += `<div class="modal-section"><h3>${d.criteriaLabel || 'Başvuru Kriterleri'}</h3><ul class="modal-list">`;
+      html += `<div class="modal-section"><h3>Başvuru & Katılım Koşulları</h3><ul class="modal-list">`;
       html += d.criteria.map(c => `<li>${c}</li>`).join('');
       html += `</ul></div>`;
     }
 
     if (d.odul) {
-      html += `<div class="modal-section"><h3>${d.rewardLabel || 'Ödül / Destek'}</h3><p>${d.odul}</p></div>`;
+      html += `<div class="modal-section"><h3>Kazanımlar / Destek</h3><p>${d.odul}</p></div>`;
+    }
+
+    if (d.note) {
+      html += `<div class="modal-section" style="border-left:2px solid var(--program); padding-left:14px;"><p style="color:var(--muted); font-size:13px;">${d.note}</p></div>`;
     }
 
     if (d.link && d.link !== "#") {
-      html += `<a class="modal-cta" href="${d.link}" target="_blank" rel="noopener">Hemen Başvur →</a>`;
+      html += `<a class="modal-cta" href="${d.link}" target="_blank" rel="noopener">Hemen Başvur / Katıl →</a>`;
     }
 
     content.innerHTML = html;
